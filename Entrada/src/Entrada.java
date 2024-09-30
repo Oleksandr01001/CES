@@ -68,8 +68,8 @@ public class Entrada {
         int bebidas = lectorTeclado.nextInt();
         System.out.println("Cuantos bocadillos pedis?");
         int bocadillos = lectorTeclado.nextInt();
-        float precioBebida = (float)bebida * bebidas;
-        float precioBocadillos = (float)bocadillo * bocadillos;
+        float precioBebida = bebida * bebidas;
+        float precioBocadillos = bocadillo * bocadillos;
         float precioTotal = precioBocadillos + precioBebida;
 
 
@@ -121,7 +121,7 @@ public class Entrada {
         System.out.printf("Grados centigrados: %.2f\nFarenheit: %.2f Kelvin: %.2f\n",c,f,k);
         System.out.println("Escribe los grados Farenheit: ");
         float f2 = lectorTeclado.nextFloat();
-        float c2 = (float) (5 * (f2 - 32)) / 9;
+        float c2 =  (5 * (f2 - 32)) / 9;
         float k2 = (float)((double) (5 * (f2 - 32) / 9) + 273.15);
         System.out.printf("Grados Farenheit: %.2f\nCentigrados: %.2f Kelvin: %.2f\n",f2,c2,k2);
         System.out.println("Escribe los grados Kelvin: ");
@@ -139,8 +139,8 @@ public class Entrada {
         int bebidas = lectorTeclado.nextInt();
         System.out.println("Cuantos bocadillos pedis?");
         int bocadillos = lectorTeclado.nextInt();
-        float precioBebida = (float)bebida * bebidas;
-        float precioBocadillos = (float)bocadillo * bocadillos;
+        float precioBebida = bebida * bebidas;
+        float precioBocadillos = bocadillo * bocadillos;
         float precioTotal = precioBocadillos + precioBebida;
         System.out.println("ATRIBUTO\t\tCANTIDAD\tPRECIO\t\tCOSTE\n");
         System.out.println("============ =========== ============= ==============");
