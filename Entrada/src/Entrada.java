@@ -106,10 +106,8 @@ public class Entrada {
     public static void ejercicio7() {
         System.out.println("Escribe un radio entero: ");
         int radio = lectorTeclado.nextInt();
-        //double longitud = valor * (Math.PI * 2);
         double longitud = 2 * Math.PI * radio;
         System.out.println("Longitud de la circunferencia: "+longitud);
-        //double area = Math.PI * valor * 2;
         double area = Math.PI * Math.pow(radio, 2);
         System.out.println("Area de circulo: "+area);
     }
