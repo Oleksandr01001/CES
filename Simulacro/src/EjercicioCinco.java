@@ -41,6 +41,6 @@ public class EjercicioCinco {
     return (altura * base) / 2;
     }
     public static double calculoAreaCirculo(double radio) {
-        return Math.PI * radio * 2;
+        return Math.PI * radio * radio;
     }
 }
