@@ -21,7 +21,8 @@ public class for1 {
         //ejercicio13();
         //ejercicio14();
         //ejercicio15();
-        ejercicio16();
+        //ejercicio16();
+        //ejercicio17();
     }
     public static void ejercicio0(){
         System.out.println("Introduce un numero:");
@@ -244,6 +245,27 @@ public class for1 {
 
     }
     public static void ejercicio15(){
+        System.out.println("Introduce una frace: ");
+        String frase = lectorTeclado.nextLine();
+
+       int numeroLetras = frase.length();
+       int numeroOraciones = 0;
+       int numeroPalabras = 0;
+       int numeroLetrasSinCosas = frase.replaceAll(" ","").replaceAll(".","").length();
+        for (int i = 0; i < frase.length(); i++) {
+            if (frase.charAt(i)=='.'){
+                numeroOraciones++;
+            } else if (frase.charAt(i) == ' ') {
+                numeroPalabras++;
+            }
+        }
+        System.out.println("El numero de frases: "+ numeroOraciones);
+        System.out.println("El numero de palabras: "+numeroPalabras);
+        System.out.println("El numero de letras: "+numeroLetras);
+        System.out.println("El numero de letras sin cosas: "+numeroLetrasSinCosas );
+
+    }
+    public static void ejercicio16(){
         int numero = random.nextInt(1,30);
         int intentos = 0;
         boolean ganador = false;
@@ -264,18 +286,15 @@ public class for1 {
         }
 
     }
-    public static void ejercicio16(){
+    public static void ejercicio17(){
         System.out.println("Introduce un numero entre 1 y 20: ");
         int numero = lectorTeclado.nextInt();
-        int resto = 0;
+        int suma = 1;
 
-        for (int i = numero; i < 1; i--) {
-            for (int j = numero; j < 1; j--) {
-                numero = numero * i;
-            }
-
+        for (int i = 0; i < numero; i++) {
+                suma += suma * i;
 
         }
-        System.out.println(numero);
+        System.out.println(suma);
     }
 }
