@@ -10,14 +10,14 @@ public class Ejercicio1 {
 
         int opcion = 0;
 
-        if (operando1 >= 0 && operando2 >= 0){
+        if (operando1 >= 0 && operando2 >= 0) {
             System.out.println("Elige la opcion: ");
             System.out.println("1.Suma");
             System.out.println("2.Resta");
             System.out.println("3.Multiplicacion");
             System.out.println("4.Division");
             opcion = lectorTeclado.nextInt();
-            switch (opcion){
+            switch (opcion) {
                 case 1:
                     int suma = operando1 + operando2;
                     System.out.printf("La suma de %d y %d = %d",operando1,operando2,suma);

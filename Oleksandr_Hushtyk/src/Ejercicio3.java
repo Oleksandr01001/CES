@@ -13,17 +13,18 @@ public class Ejercicio3 {
             System.out.println("Introduce clave: ");
             intentoClave = lectorTeclado.nextInt();
 
-            if (intento >= intentos){
-                System.out.println("Lo siento, caja bloqueada");
-                finalizacion = true;
-            }
-            if (intentoClave == clave){
+            if (intentoClave == clave) {
                 System.out.println("Perfecto, la caja ha sido abierta");
                 finalizacion = true;
-            }if (intentoClave != clave && intento != intentos) {
-                System.out.println("Intento fallido, prueba de nuevo");
+            }else if (intentoClave != clave && intento < intentos) {
+                System.out.println("Intento fallido, prueba de nuevo...");
                 intento++;
+            }else if (intento == intentos) {
+                System.out.println("Lo siento, caja bloqueada...");
+                finalizacion = true;
             }
+
+
 
         }while (finalizacion != true);
     }

@@ -25,7 +25,7 @@ public class Ejercicio4 {
                 switch (opcion){
                     case 1:
                         do {
-                            if (numero % 2 == 0){
+                            if (numero % 2 == 0) {
                                 resultado = "0" + resultado;
                                 numero = numero / 2;
                             } else {
