@@ -9,11 +9,19 @@ public class Ejercicios {
         //ejemplo();
         //ejercicio1Base();
         //ejercicio2Base();
-        ejercicio3Base();
+        //ejercicio3Base();
         //ejercicio4Base();
         //ejercicio5Base();
         //ejercicio6Base();
         //ejercicio7Base();
+        ejercicioList1();
+        //ejercicioList2();
+        //ejercicioList3();
+        //ejercicioList4();
+        //ejercicioList5();
+        //ejercicioList6();
+        //ejercicioList7();
+        //ejercicioList8();
     }
 
     public static void ejemplo() {
@@ -75,7 +83,7 @@ public class Ejercicios {
             numeros[i] += generado;
             suma += generado;
         }
-        int media = suma / 30;
+        float media = suma / 30;
 
         for (int item : numeros) {
             System.out.println(item);
@@ -91,28 +99,132 @@ public class Ejercicios {
             int numero = lectorTeclado.nextInt();
             numeros[i] += numero;
         }
-
-        int[] reverso = new int[10];
-        for (int i = numeros.length -1; i > reverso.length; i--) {
-            reverso[i] += numeros[i];
+        for (int i = numeros.length -1; i >= 0; i--) {
+            System.out.println(i);
         }
-        for (int reversos : reverso) {
-            System.out.println(reversos);
+        for (int reverso : numeros) {
+            System.out.println(reverso);
         }
-
-
     }
     public static void ejercicio4Base() {
 
+        int[] numeros = new int[20];
+        int[] cuadrado = new int[numeros.length];
+        int[] cubo = new int[numeros.length];
+
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] += random.nextInt(0,100);
+            cuadrado[i] += numeros[i] * numeros[i];
+            cubo[i] += numeros[i] * numeros[i] * numeros[i];
+        }
+        System.out.println("Numeros "+"Cuadrado "+"Cubo ");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println(numeros[i]+"     "+cuadrado[i]+"       "+cubo[i]);
+        }
+
+
     }
     public static void ejercicio5Base() {
+    int[] numeros = new int[8];
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println("Introduce un numero entero: ");
+            numeros[i] += lectorTeclado.nextInt();
+        }
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] % 2 == 0) {
+                System.out.println(numeros[i]+"  Es par");
+            } else {
+                System.out.println(numeros[i]+"  Es impar");
+            }
+        }
 
     }
     public static void ejercicio6Base() {
-
+        int[] numeros = new int[20];
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] += random.nextInt(0,30);
+        }
+        for (int i = 0; i < numeros.length; i++) {
+            if (numeros[i] == 6) {
+                numeros[i] = 8;
+            } else if (numeros[i] == 7) {
+                numeros[i] = 15;
+            } else if (numeros[i] == 20) {
+                numeros[i] = 10;
+            }
+            System.out.println(numeros[i]);
+        }
     }
     public static void ejercicio7Base() {
 
+        String[] palabras = new String[10];
+        int numeroLetras = 0;
+        String palabraMasGrande = "";
+
+        for (int i = 0; i < palabras.length; i++) {
+            System.out.println("Introduce la palabra: ");
+            palabras[i] = lectorTeclado.next();
+            if (palabras[i].length() > palabraMasGrande.length()){
+                palabraMasGrande = palabras[i];
+            }
+
+        }
+        System.out.println("Elige la opcion...");
+        System.out.println("1.Ver todas las palabras");
+        System.out.println("2.Obtener una palabra al azar");
+        System.out.println("3.Ver número de letras");
+        System.out.println("4.Ver media de letras");
+        System.out.println("5.Ver palabra con más letras");
+        System.out.println("6.Ver palabra con menos letras");
+        int opcion = lectorTeclado.nextInt();
+
+        for (String letras : palabras) {
+            numeroLetras += letras.length();
+        }
+        double numeroMedia = (double) numeroLetras / palabras.length;
+
+        switch (opcion) {
+            case 1:
+                for (String palabra : palabras) {
+                    System.out.println(palabra);
+                }
+                break;
+            case 2:
+                int palabraRandom = random.nextInt(palabras.length);
+                System.out.println("La palabra es: " + palabras[palabraRandom]);
+                break;
+            case 3:
+                System.out.println("Numero de letras: " + numeroLetras);
+                break;
+            case 4:
+                System.out.println("La media de letras: " + numeroMedia);
+                break;
+            case 5:
+                System.out.println("La palabra con mas letras: "+palabraMasGrande);
+                break;
+            case 6:
+                String palabraMasCorta = palabras[0];
+                for (String item : palabras) {
+                    if (item.length() < palabraMasCorta.length()) {
+                        palabraMasCorta = item;
+                    }
+                    System.out.println("La palabra con menos letras: "+palabraMasCorta);
+                    break;
+                }
+        }
     }
+    public static void ejercicioList1() {
+        String[] palabras = {"Yo","Tu","El","Ella","Usted","Nosotros","Vosotros","Ellos","Ustedes","Lox"};
+        for (String palabra : palabras) {
+            System.out.println(palabra);
+        }
+    }
+    public static void ejercicioList2() {}
+    public static void ejercicioList3() {}
+    public static void ejercicioList4() {}
+    public static void ejercicioList5() {}
+    public static void ejercicioList6() {}
+    public static void ejercicioList7() {}
+    public static void ejercicioList8() {}
 
 }
