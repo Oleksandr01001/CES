@@ -14,8 +14,8 @@ public class Ejercicios {
         //ejercicio5Base();
         //ejercicio6Base();
         //ejercicio7Base();
-        ejercicioList1();
-        //ejercicioList2();
+        //ejercicioList1();
+        ejercicioList2();
         //ejercicioList3();
         //ejercicioList4();
         //ejercicioList5();
@@ -219,7 +219,8 @@ public class Ejercicios {
             System.out.println(palabra);
         }
     }
-    public static void ejercicioList2() {}
+    public static void ejercicioList2() {
+    }
     public static void ejercicioList3() {}
     public static void ejercicioList4() {}
     public static void ejercicioList5() {}
