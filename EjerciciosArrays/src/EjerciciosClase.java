@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 public class EjerciciosClase {
@@ -13,8 +14,8 @@ public class EjerciciosClase {
         //ejercicio6();
         //ejercicio7();
         //ejercicio8();
-        //ejercicio9();
-        ejemploMatrix();
+        ejercicio9();
+        //ejemploMatrix();
     }
     public static void ejercicio1() {
 
@@ -209,7 +210,121 @@ public class EjerciciosClase {
         }
     }
     public static void ejercicio8() {}
-    public static void ejercicio9() {}
+    public static void ejercicio9() {
+        int opcion;
+        int[] numeros = null;
+
+        do {
+            System.out.println("1.Crear un array");
+            System.out.println("2. Rellenar aleatorios");
+            System.out.println("3. Rellenar consola");
+            System.out.println("4. Ordenar array");
+            System.out.println("5. Clonar ");
+            System.out.println("6. Mover izquierda");
+            System.out.println("7. Mover derecha");
+            System.out.println("8. Mover por pares");
+            System.out.println("9. Invertir");
+            System.out.println("10. Imprimir");
+            System.out.println("11. Salir");
+            System.out.println("Dime la opcion que quieres elegir: ");
+            opcion = lectorTeclado.nextInt();
+            switch (opcion) {
+                case 1:
+                    System.out.println("Vas a generar el array");
+                    System.out.println("Cuantas posiciones quieres reservar ?");
+                    int posiciones =lectorTeclado.nextInt();
+                    numeros = new int[posiciones];
+                    System.out.println("Creado correctamente");
+                    break;
+                case 2:
+                    if (numeros != null) {
+                        System.out.println("Vas a rellenar con aleatorios");
+                        for (int i = 0; i < numeros.length; i++) {
+                            numeros[i] = random.nextInt(0,20);
+                        }
+                    } else {
+                        System.out.println("Inicia el array antes");
+                    }
+                    break;
+                case 3:
+                    if (numeros != null) {
+                        for (int i = 0; i < numeros.length; i++) {
+                            System.out.println("Introduce el numero de la posicion "+(i+1));
+                            int posicion = lectorTeclado.nextInt();
+                            numeros[i] = posicion;
+                        }
+                    }
+                    break;
+                case 4:
+                    Arrays.sort(numeros);
+                    break;
+                case 5:
+                    System.out.println("Cual es la nueva longitud ?");
+                    int nuevaLongitud = lectorTeclado.nextInt();
+                    numeros = Arrays.copyOf(numeros,nuevaLongitud);
+                    break;
+                case 6:
+                    if (numeros != null) {
+
+                        System.out.println("Vas a rotar a la derecha");
+                        int temporal = numeros[0];
+                        for (int i = 0; i < numeros.length - 1; i++) {
+                            numeros[i] = numeros[i + 1];
+                        }
+                        numeros[numeros.length-1] = temporal;
+                    } else {
+                        System.out.println("No se puede rotar");
+                    }
+                    break;
+                case 7:
+                    if (numeros != null) {
+                        System.out.println("Vas a rotar a la izquierda");
+                        int temporal = numeros[numeros.length-1];
+                        for (int i = numeros.length -1; i > 0 ; i--) {
+                            numeros[i] = numeros[i - 1];
+                        }
+                        numeros[0] = temporal;
+
+                    } else {
+                        System.out.println("No se puede rotar");
+                    }
+                    break;
+                case 8:
+                    if (numeros != null) {
+                        for (int i = 0; i < numeros.length; i+=2) {
+                            int temporal = numeros[i];
+                            numeros[i] = numeros[i + 1];
+                            numeros[i + 1] = temporal;
+                        }
+                    } else {
+                        System.out.println("El elemento es nulo");
+                    }
+                    break;
+                case 9:
+                    if (numeros != null) {
+                        for (int i = 0; i < numeros.length/2; i++) {
+                            numeros[i] = numeros[numeros.length-1-i];
+                        }
+                    } else {
+                        System.out.println("El elemento es nulo");
+                    }
+                    break;
+                case 10:
+                    if (numeros != null) {
+                        for (int item : numeros) {
+                            System.out.print(item + " ");
+                        }
+                        System.out.println();
+                    } else {
+                        System.out.println("No se ha inicializado el array");
+                    }
+                    break;
+                case 11:
+                    System.out.println("Saliendo...");
+                    break;
+            }
+        } while (opcion != 11);
+    }
 
 
     public static void ejemploMatrix() {
