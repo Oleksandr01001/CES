@@ -13,8 +13,6 @@ public class Entrada {
         int opcion = 0;
 
         do {
-
-
             System.out.println("1.Agregar pilotos");
             System.out.println("2.Actualizar puntos");
             System.out.println("3.Mostrar información de un piloto");
@@ -23,9 +21,7 @@ public class Entrada {
 
             System.out.print("Elige la opcion: ");
             opcion = scanner.nextInt();
-            if (opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 0) {
-                System.out.println("No existe opcion con el codigo "+opcion+"\nPor favor intenta de nuevo...");
-            }
+
 
             switch (opcion) {
                 case 1:
@@ -43,6 +39,10 @@ public class Entrada {
                 case 0:
                     System.out.println("Saliendo de la aplicacion...");
                     break;
+                default:
+                    System.out.println("No existe opcion con el codigo "+opcion+"\nPor favor intenta de nuevo...");
+                    break;
+
             }
 
 
@@ -51,7 +51,5 @@ public class Entrada {
 
 
     }
-
-
 
 }
