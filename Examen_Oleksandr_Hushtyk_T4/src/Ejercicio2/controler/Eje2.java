@@ -28,7 +28,7 @@ public class Eje2 {
 
     public void verSuspensos() {
         for (Object[] alumno : alumnos) {
-            if (alumno[1].equals(5)) {
+            if ((int)alumno[1] < 5) {
                 System.out.println("Suspenso: "+alumno[0]+", Nota: "+alumno[1]);
             }
         }

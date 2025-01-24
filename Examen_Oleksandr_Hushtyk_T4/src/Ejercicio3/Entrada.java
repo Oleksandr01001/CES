@@ -12,7 +12,7 @@ public class Entrada {
 
         Eje3 eje3 = new Eje3();
 
-        int opcion = 0;
+        int opcion;
 
         do {
 

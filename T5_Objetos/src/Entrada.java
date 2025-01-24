@@ -1,25 +1,19 @@
+import controller.Carrera2;
+import controller.Coche2;
 import model.Coche;
 
 public class Entrada {
     public static void main(String[] args) {
+        Carrera2 carrera2 = new Carrera2(4,"Olek");
 
-        Coche coche = new Coche();
-        coche.setMarca("Fiat");
-        coche.mostrarDatos();
+        carrera2.inscribirParticipante(new Coche2("Ford","Focus","123a",200));
+        carrera2.inscribirParticipante(new Coche2("Ford","Focus","123c",200));
+        carrera2.inscribirParticipante(new Coche2("Bmw","m5","123b",200));
 
-        System.out.println();
+        carrera2.imprimirCoches();
+        carrera2.inicializarCarrera(4);
+        carrera2.mostrarClasificacion();
+        carrera2.mostrarGanador();
 
-        Coche coche2 = new Coche("Ford","Focus","gris");
-        coche2.mostrarDatos();
-
-        System.out.println();
-
-        Coche coche3 = new Coche("Opel", "Corsa", 250);
-        coche3.mostrarDatos();
-
-        System.out.println();
-
-        Coche coche4 = new Coche("BMW","m5","negro",1000,250000,"12bb2","123445667B");
-        coche4.mostrarDatos();
     }
 }

@@ -44,7 +44,7 @@ public class Eje3 {
             }
         personas.add(persona);
         System.out.println("Persona añadida con exito");
-        return;
+
 
     }
     public void buscarPersona() {
@@ -78,13 +78,12 @@ public class Eje3 {
                 System.out.println("No hay persona con este dni...");
             }
         }
-        return;
     }
     public void borrarDisponibilidad() {
         System.out.println("Borrando todas las persona sin disponibilidad...");
-        boolean b = false;
+
         for (Object[] persona : personas) {
-            if (persona[4].equals(b)) {
+            if (persona[4].equals(false)) {
                 personas.remove(persona);
                 System.out.println("Todas personas con la disponibilidad (false) han borrado de la lista");
             }
