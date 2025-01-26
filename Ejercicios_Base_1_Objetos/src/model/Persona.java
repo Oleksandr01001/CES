@@ -2,17 +2,19 @@ package model;
 
 public class Persona {
 
-    private String nombre, apellido, dni;
+    private String nombre, apellido, dni, genero;
     private int edad;
-    private double peso, altura;
+    private double peso, altura, imc;
 
-    public Persona(String nombre, String apellido, String dni, int edad, double peso, double altura) {
+    public Persona(String nombre, String apellido, String dni, int edad, double peso, double altura, String genero) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.edad = edad;
         this.peso = peso;
         this.altura = altura;
+        this.genero = genero.toLowerCase();
+        this.imc = calcularIMC();
     }
 
     public Persona(String nombre, String apellido, String dni, int edad) {
@@ -39,13 +41,16 @@ public class Persona {
 
 
     public void mostrarDatos() {
-        System.out.printf("Nombre: %s" +
+        System.out.printf("\nNombre: %s" +
                         "\nApellido: %s" +
                         "\nDNI: %s" +
-                        "\nAltura: %.2f" +
+                        "\nEdad: %d" +
                         "\nPeso: %.2f" +
-                        "\nEdad: %d",
-                nombre,apellido,dni,edad,peso,altura);
+                        "\nAltura: %.2f" +
+                        "\nIMC: %.2f" +
+                        "\nEstado ficico: %s",
+                nombre,apellido,dni,edad,peso,altura,imc,estadoFicico());
+        System.out.println();
     }
 
     public void incrementarEdad(int edad) {
@@ -53,8 +58,44 @@ public class Persona {
     }
 
     public double calcularIMC() {
-        double imc = peso/Math.pow(altura,2);
+        this.imc = peso/Math.pow(altura/100,2);
         return imc;
+    }
+
+    public String estadoFicico() {
+        if (genero == null || genero.isEmpty()) {
+            return "Género no especificado";
+        }
+        if (genero.equals("h")) {
+            if (imc < 20) {
+                return "Bajo peso";
+            }
+            if (imc < 27) {
+                return "Normopeso";
+            }
+            if (imc < 30) {
+                return "Sobrepeso";
+            }
+            if (imc <= 40) {
+                return "Obesidad";
+            }
+            return "Obesidad mórbida";
+        } else if (genero.equals("m")) {
+            if (imc < 20) {
+                return "Bajo peso";
+            }
+            if (imc < 25) {
+                return "Normopeso";
+            }
+            if (imc < 30) {
+                return "Sobrepeso";
+            }
+            if (imc <= 40) {
+                return "Obesidad";
+            }
+            return "Obesidad mórbida";
+        }
+        return "Error";
     }
 
 
