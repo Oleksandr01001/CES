@@ -66,7 +66,7 @@ public class Persona {
         if (genero == null || genero.isEmpty()) {
             return "Género no especificado";
         }
-        if (genero.equals("h")) {
+        if (genero.equals("m")) {
             if (imc < 20) {
                 return "Bajo peso";
             }
@@ -80,7 +80,7 @@ public class Persona {
                 return "Obesidad";
             }
             return "Obesidad mórbida";
-        } else if (genero.equals("m")) {
+        } else if (genero.equals("f")) {
             if (imc < 20) {
                 return "Bajo peso";
             }
