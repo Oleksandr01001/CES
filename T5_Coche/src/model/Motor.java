@@ -4,12 +4,11 @@ public class Motor {
 
     private int cv, aceite;
 
+    public Motor() {}
 
-    public void Motor() {}
-
-    public void Motor(int cv) {
+   public Motor(int cv) {
         this.cv = cv;
-    }
+   }
 
     public int getAceite() {
         return aceite;
