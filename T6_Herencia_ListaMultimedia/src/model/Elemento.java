@@ -20,7 +20,7 @@ public class Elemento {
         System.out.println("Id: "+id);
         System.out.println("Titulo: "+titulo);
         System.out.println("Formato: "+formato);
-        System.out.println("Autor: "+autor);
+        System.out.println("Autor: "+autor.getNombre());
         System.out.println("Tamaño: "+tamano);
     }
 

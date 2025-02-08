@@ -1,6 +1,9 @@
 package controller;
 
+import model.Audio;
 import model.Elemento;
+import model.Libro;
+import model.Video;
 
 import java.util.ArrayList;
 
@@ -33,8 +36,31 @@ public class Coleccion {
         }
     }
 
-    public void listarElementos(int tipo) {
-
+    public void listarElementos(int tipo){
+        for (Elemento item : elementos) {
+            switch (tipo) {
+                case 0:
+                    if (item instanceof Libro) {
+                        item.mostrarDatos();
+                        System.out.println();
+                    }
+                    break;
+                case 1:
+                    if (item instanceof Audio) {
+                        item.mostrarDatos();
+                        System.out.println();
+                    }
+                    break;
+                case 2:
+                    if (item instanceof Video) {
+                        item.mostrarDatos();
+                        System.out.println();
+                    }
+                    break;
+                case 3:
+                    item.mostrarDatos();
+            }
+        }
     }
 
     public ArrayList<Elemento> getElementos() {
