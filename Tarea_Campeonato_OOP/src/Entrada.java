@@ -45,7 +45,7 @@ public class Entrada {
         carrera1.registrarResultado(p1, 1);
         carrera1.registrarResultado(p2, 2);
         carrera1.registrarResultado(p3, 3);
-        
+
 
         carrera1.obtenerGanadorCarrera();
 
