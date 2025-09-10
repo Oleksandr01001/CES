@@ -1,9 +1,9 @@
 package model;
 import controller.Empresa;
 
-public class Jefe extends Trabajador{
+public class Jefe extends Trabajador implements Empleador{
 
-    private int acciones;
+    private double acciones;
     private double beneficio;
 
     public Jefe() {}
@@ -22,5 +22,10 @@ public class Jefe extends Trabajador{
 
     public void despedirTrabajador(String dni) {
 
+    }
+
+    @Override
+    public void calcularBeneficio() {
+        acciones = beneficio*0.1;
     }
 }

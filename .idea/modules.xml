@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Alumnos/Alumnos.iml" filepath="$PROJECT_DIR$/Alumnos/Alumnos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjemploGaraje/EjemploGaraje.iml" filepath="$PROJECT_DIR$/EjemploGaraje/EjemploGaraje.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjerciciosArrays/EjerciciosArrays.iml" filepath="$PROJECT_DIR$/EjerciciosArrays/EjerciciosArrays.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EjerciciosWhile/EjerciciosWhile.iml" filepath="$PROJECT_DIR$/EjerciciosWhile/EjerciciosWhile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ejercicios_10_12_24/Ejercicios_10_12_24.iml" filepath="$PROJECT_DIR$/Ejercicios_10_12_24/Ejercicios_10_12_24.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ejercicios_Base_1_Objetos/Ejercicios_Base_1_Objetos.iml" filepath="$PROJECT_DIR$/Ejercicios_Base_1_Objetos/Ejercicios_Base_1_Objetos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Entrada/Entrada.iml" filepath="$PROJECT_DIR$/Entrada/Entrada.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Equipo/Equipo.iml" filepath="$PROJECT_DIR$/Equipo/Equipo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EsteucturaDeControl/EsteucturaDeControl.iml" filepath="$PROJECT_DIR$/EsteucturaDeControl/EsteucturaDeControl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Estructura/Estructura.iml" filepath="$PROJECT_DIR$/Estructura/Estructura.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EstructuraDeControlT3/EstructuraDeControlT3.iml" filepath="$PROJECT_DIR$/EstructuraDeControlT3/EstructuraDeControlT3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examen/Examen.iml" filepath="$PROJECT_DIR$/Examen/Examen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examen_Oleksandr_Hushtyk_T4/Examen_Oleksandr_Hushtyk_T4.iml" filepath="$PROJECT_DIR$/Examen_Oleksandr_Hushtyk_T4/Examen_Oleksandr_Hushtyk_T4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Examen_T6_Oleksandr_Hushtyk/Examen_T6_Oleksandr_Hushtyk.iml" filepath="$PROJECT_DIR$/Examen_T6_Oleksandr_Hushtyk/Examen_T6_Oleksandr_Hushtyk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Llamadas_T6/Llamadas_T6.iml" filepath="$PROJECT_DIR$/Llamadas_T6/Llamadas_T6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oleksandr_Hushtyk/Oleksandr_Hushtyk.iml" filepath="$PROJECT_DIR$/Oleksandr_Hushtyk/Oleksandr_Hushtyk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Oleksandr_Hushtyk_ExamenT4/Oleksandr_Hushtyk_ExamenT4.iml" filepath="$PROJECT_DIR$/Oleksandr_Hushtyk_ExamenT4/Oleksandr_Hushtyk_ExamenT4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Oleksandr_Hushtyk_PRO.iml" filepath="$PROJECT_DIR$/.idea/Oleksandr_Hushtyk_PRO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticaArray_Hash/PracticaArray_Hash.iml" filepath="$PROJECT_DIR$/PracticaArray_Hash/PracticaArray_Hash.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PruebaExamenArrayList/PruebaExamenArrayList.iml" filepath="$PROJECT_DIR$/PruebaExamenArrayList/PruebaExamenArrayList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Simulacro/Simulacro.iml" filepath="$PROJECT_DIR$/Simulacro/Simulacro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Simulacro_T3/Simulacro_T3.iml" filepath="$PROJECT_DIR$/Simulacro_T3/Simulacro_T3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T5_Coche/T5_Coche.iml" filepath="$PROJECT_DIR$/T5_Coche/T5_Coche.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T5_Objetos/T5_Objetos.iml" filepath="$PROJECT_DIR$/T5_Objetos/T5_Objetos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T6_Herencia_ListaMultimedia/T6_Herencia_ListaMultimedia.iml" filepath="$PROJECT_DIR$/T6_Herencia_ListaMultimedia/T6_Herencia_ListaMultimedia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/T6_Herencia_Trabajadores/T6_Herencia_Trabajadores.iml" filepath="$PROJECT_DIR$/T6_Herencia_Trabajadores/T6_Herencia_Trabajadores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tarea_Campeonato/Tarea_Campeonato.iml" filepath="$PROJECT_DIR$/Tarea_Campeonato/Tarea_Campeonato.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tarea_Campeonato_OOP/Tarea_Campeonato_OOP.iml" filepath="$PROJECT_DIR$/Tarea_Campeonato_OOP/Tarea_Campeonato_OOP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tema6_Herencia/Tema6_Herencia.iml" filepath="$PROJECT_DIR$/Tema6_Herencia/Tema6_Herencia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Trabajadores/Trabajadores.iml" filepath="$PROJECT_DIR$/Trabajadores/Trabajadores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ejercicios for/ejercicios for.iml" filepath="$PROJECT_DIR$/ejercicios for/ejercicios for.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simulacroExamenT4/simulacroExamenT4.iml" filepath="$PROJECT_DIR$/simulacroExamenT4/simulacroExamenT4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/variables/variables.iml" filepath="$PROJECT_DIR$/variables/variables.iml" />
+    </modules>
+  </component>
+</project>

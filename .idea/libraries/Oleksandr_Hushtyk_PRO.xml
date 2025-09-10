@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Oleksandr_Hushtyk_PRO">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Ejercicios_Clase.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Examen_T6_Oleksandr_Hushtyk.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Oleksandr_Hushtyk_ExamenT4.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Oleksandr_Hushtyk_Examen_T3.zip!/" />
+      <root url="jar://$PROJECT_DIR$/PruebaExamenArrayList.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Examen1.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Examen_Oleksandr_Hushtyk_T4.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
