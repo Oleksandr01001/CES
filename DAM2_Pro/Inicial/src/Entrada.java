@@ -10,7 +10,10 @@ public class Entrada {
 
 
         //if_1();
-        if_2();
+        //if_2();
+        //if_3();
+        //if_4();
+        //if_5();
 
     }
 
@@ -47,16 +50,37 @@ public class Entrada {
     public static void if_3() {
         System.out.println("Introduce un numero: ");
         int num = scanner.nextInt();
-        boolean digitos = num > 999 && num <= 9999;
-        int numInverso;
-
-        
-
-        if(digitos){
-            System.out.println("Numero tiene 4 digitos");
+        if (num < 1000 || num > 9999) {
+            System.out.println("El número no tiene 4 dígitos");
+            return;
+        }
+        int u = num % 10, d = (num / 10) % 10, c = (num / 100) % 10, m = num / 1000;
+        if (u == m && d == c) {
+            System.out.println("Es capicúa");
+        } else {
+            System.out.println("No es capicúa");
         }
 
+    }
+    public static void if_4() {
+        System.out.println("Introduce un numero: ");
+        int num = scanner.nextInt();
+        System.out.println("Entrada: "+num);
 
-
+        if(num % 2 == 0) {
+            num = num + 1;
+        } else {
+            num = num - 1;
+        }
+        System.out.println("Salida: "+num);
+    }
+    public static void if_5() {
+        int n = scanner.nextInt();
+        int res = n;
+        if (n % 2 == 0) res += 2;
+        if (n % 3 == 0) res += 3;
+        if (n % 5 == 0) res += 5;
+        if (res == n) res += 1;
+        System.out.println(res);
     }
 }
