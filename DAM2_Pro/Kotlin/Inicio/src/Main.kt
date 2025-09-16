@@ -1,9 +1,9 @@
 fun main() {
 
-    println("Por favor introduce tu nombre")
-    var nombre = readln();
-    println("Por favor introduce tu edad")
-    var edad = readln().toInt()
+   // println("Por favor introduce tu nombre")
+    //var nombre = readln();
+    //println("Por favor introduce tu edad")
+   // var edad = readln().toInt()
     /*
     println("Hola $nombre tu edad es $edad")
     var nombre = "Olek" // Sting
@@ -24,9 +24,35 @@ fun main() {
 
 
    // saludar(nombre, vecesParam = 1)
-    sumaFlecha(1,2)
+    //sumaFlecha(1,2)
     //println("El resultado de la operacion es ${sumar()}")
+    repetirFor()
 
+
+
+
+}
+
+
+fun decidirWhen(valor: Int) {
+    println("El valor realizado es: ")
+    when(valor) {
+        1->{
+            println("")
+        }
+        2->{
+
+        }
+    }
+}
+
+fun repetirFor() {
+    /*for (i in 0..9 step 2) {
+        println(i)
+    }*/
+
+    //(20..30).forEach { p -> println(p) }
+    (20..30).forEachIndexed { index, item -> println("Elemento en posicion $index con valor $item") }
 }
 
 fun saludar(nombreParam: String, vecesParam: Int=1) {
