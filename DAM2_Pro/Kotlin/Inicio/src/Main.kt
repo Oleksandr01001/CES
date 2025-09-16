@@ -23,10 +23,20 @@ fun main() {
     */
 
 
-    saludar(nombre, vecesParam = 1)
+   // saludar(nombre, vecesParam = 1)
+    sumaFlecha(1,2)
+    //println("El resultado de la operacion es ${sumar()}")
 
 }
 
 fun saludar(nombreParam: String, vecesParam: Int=1) {
     println("Hola $nombreParam, acabas de realizar una funcion")
+}
+
+fun sumar(op1: Int=0, op2: Int=0): Int{
+    return op1 + op2
+}
+
+val sumaFlecha = { p1: Int, p2: Int ->
+    println("El resultado de la suma es ${p1 + p2}")
 }
