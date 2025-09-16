@@ -1,10 +1,11 @@
 fun main() {
 
-
-    println("Este es mi primer programa kotlin")
-
-    println()
-
+    println("Por favor introduce tu nombre")
+    var nombre = readln();
+    println("Por favor introduce tu edad")
+    var edad = readln().toInt()
+    /*
+    println("Hola $nombre tu edad es $edad")
     var nombre = "Olek" // Sting
     var edad = 18 // Int
     val DNI: String = "12341234A"
@@ -19,5 +20,13 @@ fun main() {
 
     direccion = "Alcorcon"
     println("Mi direccion es $direccion")
+    */
 
+
+    saludar(nombre, vecesParam = 1)
+
+}
+
+fun saludar(nombreParam: String, vecesParam: Int=1) {
+    println("Hola $nombreParam, acabas de realizar una funcion")
 }
