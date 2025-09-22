@@ -17,7 +17,7 @@ public class Main {
         tarea.asignarPersona (new Persona("Nombre","apellido","123a",15));
         tarea.asignarPersona (new Persona("Nombre","apellido","123b",15));
         tarea.asignarPersona (new Persona("Nombre","apellido","123c",15));
-
+        tarea.asignarPersona(new Persona("Hola","Apellido","123d",19));
 
 
         tarea.eliminarResponsable("123b");
