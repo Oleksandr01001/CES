@@ -1,4 +1,5 @@
 import model.Producto
+import model.Tienda
 
 fun main() {
 
@@ -9,18 +10,46 @@ fun main() {
     var cartera = Producto(5, 5.0, "Cartera", "Catrera...")
 
 
+    var tienda: Tienda = Tienda("Tienda")
+    tienda.agregarProducto(gorra)
+    tienda.mostrarAlmacen()
+    tienda.venderProducto(4)
+    tienda.mostrarAlmacen()
 
+    /*
     val listaProductos: Array<Producto?> = arrayOf(camiseta, zapatillas, pantalones, gorra, cartera)
+    val listaProductosVasio: Array<Producto?> = arrayOfNulls(5)
+    val listaClientes: Array<String> = arrayOf("Borja","Artur")
 
     listaProductos[0]?.mostrarDatos()
     listaProductos.last()?.precio=20.0
     listaProductos[listaProductos.size-1]?.mostrarDatos()
     listaProductos[2] = null
+     */
 
 
+
+
+    /*
     for (i in listaProductos) {
         i?.mostrarDatos()
     }
+     */
+
+    /*
+    listaProductos.forEach {
+        it?.mostrarDatos()
+    }
+     */
+
+    /*
+    listaProductos.forEachIndexed { index, producto ->
+        println("Mostrando producto en posicion $index")
+        producto?.mostrarDatos()
+    }
+     */
+
+
 
 
 
