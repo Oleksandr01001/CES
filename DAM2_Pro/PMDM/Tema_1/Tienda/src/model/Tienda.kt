@@ -44,7 +44,16 @@ class Tienda(var nombreTienda: String) {
     }
 
 
+    fun buscarProductosCategoria(categoria: Categoria) {
+        // filtrado ->
+    }
 
+    fun buscarProductoId(id: Int):Unit {
+        // buscando -> optengo un elemento
+        var productoBusqueda: Producto? = almacen.find {
+            return@find it?.id == id
+        }
+    }
 
 
 

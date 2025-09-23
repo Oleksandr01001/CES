@@ -1,3 +1,4 @@
+import model.Categoria
 import model.Producto
 import model.Tienda
 
@@ -5,9 +6,9 @@ fun main() {
 
     var camiseta: Producto = Producto(id = 1, precio = 14.99)
     var zapatillas: Producto = Producto(2,20.0)
-    var pantalones = Producto(3,30.0,"Pantalones")
+    var pantalones = Producto(3,30.0, Categoria.Ropa, "Pantalones")
     var gorra = Producto(4,20.0, descripcion = "Gorra molona")
-    var cartera = Producto(5, 5.0, "Cartera", "Catrera...")
+    var cartera = Producto(5, 5.0, Categoria.Ropa,"Cartera", "Catrera...")
 
 
     var tienda: Tienda = Tienda("Tienda")
