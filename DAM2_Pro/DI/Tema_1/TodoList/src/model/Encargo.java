@@ -1,19 +1,23 @@
 package model;
 
 public class Encargo {
-
     private int id;
     private String descripcion;
     private boolean completada;
 
+    public Encargo(int id, String descripcion) {
+        this.id = id;
+        this.descripcion = descripcion;
+        completada = false;
+    }
 
     public Encargo() {
     }
 
-    public Encargo(int id, String descripcion, boolean completada) {
-        this.id = id;
-        this.descripcion = descripcion;
-        this.completada = completada;
+    public void mostrarDatos() {
+        System.out.println("id = " + id);
+        System.out.println("descripcion = " + descripcion);
+        System.out.println("completada = " + completada);
     }
 
     public int getId() {
@@ -38,5 +42,14 @@ public class Encargo {
 
     public void setCompletada(boolean completada) {
         this.completada = completada;
+    }
+
+    @Override
+    public String toString() {
+        return "Encargo{" +
+                "id=" + id +
+                ", descripcion='" + descripcion + '\'' +
+                ", completada=" + completada +
+                '}';
     }
 }

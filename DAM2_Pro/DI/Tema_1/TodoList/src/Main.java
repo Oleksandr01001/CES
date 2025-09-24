@@ -1,28 +1,25 @@
+import model.Encargo;
 import model.Persona;
 import model.Tarea;
-
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
         Tarea tarea = new Tarea("Practica DI",
                 "Esta practica de DI es hacer un programa todolist",
                 true,
-                4);
+                2);
+        // tarea.asignarResponsable(new Persona("123A","Nombre1","Apellido1",23));
+        // tarea.asignarResponsable(new Persona("123A","Nombre1","Apellido1",23));
+        // tarea.asignarResponsable(new Persona("123A","Nombre1","Apellido1",23));
+        tarea.agregarEncargo(new Encargo(1,"Planificar la entrega"));
+        tarea.agregarEncargo(new Encargo(2,"Codiicar la practica"));
+        tarea.agregarEncargo(new Encargo(3,"Grabar video"));
+        tarea.agregarEncargo(new Encargo(4,"Entregar practica"));
 
 
 
-        tarea.asignarPersona (new Persona("Nombre","apellido","123a",15));
-        tarea.asignarPersona (new Persona("Nombre","apellido","123b",15));
-        tarea.asignarPersona (new Persona("Nombre","apellido","123c",15));
-        tarea.asignarPersona(new Persona("Hola","Apellido","123d",19));
-
-
-        tarea.eliminarResponsable("123b");
-        tarea.listarResponsables();
-
+        tarea.listarEncargos();
+        tarea.buscarEncargo(1);
     }
-
 }

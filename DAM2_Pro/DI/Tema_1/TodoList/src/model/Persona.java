@@ -1,21 +1,27 @@
 package model;
 
 public class Persona {
-
-    private String nombre, apellido, dni;
+    // Nombre, apellido, dni, edad
+    private String dni, nombre, apellido;
     private int edad;
 
-    public Persona(String nombre, String apellido, String dni, int edad) {
+    public Persona(String dni, String nombre, String apellido, int edad) {
+        this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.dni = dni;
         this.edad = edad;
     }
 
     public Persona() {
     }
 
+    public String getDni() {
+        return dni;
+    }
 
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
 
     public String getNombre() {
         return nombre;
@@ -33,14 +39,6 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
     public int getEdad() {
         return edad;
     }
@@ -49,13 +47,12 @@ public class Persona {
         this.edad = edad;
     }
 
-
     @Override
     public String toString() {
         return "Persona{" +
-                "nombre='" + nombre + '\'' +
+                "dni='" + dni + '\'' +
+                ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", dni='" + dni + '\'' +
                 ", edad=" + edad +
                 '}';
     }
