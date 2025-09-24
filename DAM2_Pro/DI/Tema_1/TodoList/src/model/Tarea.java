@@ -2,18 +2,60 @@ package model;
 
 import java.util.ArrayList;
 
+// crear el método que permite agregar un encargo
+// los encargos deben tener ID unico -> PONER AVISOS
+// crear el método que permite eliminar un encargo
+// para ello se pide el id del encargo y se quita de la lista -> PONER AVISOS
+
+/*
+Listar todos los encargos de una tarea
+ */
+
+/*
+Buscar un encargo por id y mostrar sus datos
+ */
+
+/*
+Completar un encargo -> pasar su variable completada a true
+ */
+
+/*
+Mostrar un encargo que estan completados
+ */
+
+/*
+Completar una tarea -> Una tarea quedará completa si todos sus encargos
+estan completos
+ */
+
+/*
+Crear los metodos de:
+asignar a un encargo un responsable
+Para moder asignar un responsable al encargo, previamente debe estar como integrande del
+equipo
+ */
+
+/*
+Cambiar responsable de tarea
+ */
+
+/*
+Mostrar tareas por responsbale -> DNI
+ */
 
 public class Tarea {
 
+    // una tarea tiene asociadas una serie de personas
+    // cuando se crea la tarea es necesario pedir cuantas personas (NO QUE PERSONAS)
+    // encargaran de la tarea
 
-
-
+    // variables
     private String titulo, descripcion;
     private boolean prioritario, completada;
     private Persona[] encargados;
     private ArrayList<Encargo> listaTareas;
 
-
+    // constructores
     public Tarea() {
 
     }
@@ -37,7 +79,18 @@ public class Tarea {
         listaTareas = new ArrayList<>();
     }
 
+    // metodos -> getter / setter
 
+    // cada tarea puede asignar una persona
+    // solo se podrá asignar una persona si hay hueco disponible
+    // cada vez que se asigne una persona, se deberá colocar en el primer hueco
+    // disponible
+    // si no hay hueco, saltar un aviso,
+    // no podrás agregar dos personas que tengan el mismo DNI
+
+    // en una tarea se pueden quitar responsables. Solo podre quitar una tarea si el DNI
+    // que me indicas esta dentro de la lista de responsables. Mostrar aviso tanto para
+    // proceso OK como proceso no OK
 
     public void asignarResponsable(Persona persona) {
         for (int i = 0; i < encargados.length; i++) {
@@ -61,7 +114,9 @@ public class Tarea {
         System.out.printf("La persona con DNI %s no esta en esta tarea%n", dni);
     }
 
-
+    // mostrar los datos de todos los usuarios que son responsables de dicha tarea
+    // en caso de no tener ninguna avisar
+    // en caso de tener huecos disponibles, avisar de cuantos
 
     public void mostrarResponsables() {
         int numeroHuecos = 0;
@@ -119,71 +174,49 @@ public class Tarea {
         }
     }
 
+    public boolean borrarEncargo1(int id) {
+        return listaTareas.remove(estaEncargo(id));
+    }
 
-    /*
-Listar todos los encargos de una tarea
- */
-    public void listarEncargos() {
-        for (Encargo encargo : listaTareas) {
-            encargo.mostrarDatos();
+    public void listarEncargos(){
+        for (Encargo item : listaTareas) {
+            item.mostrarDatos();
         }
     }
 
-/*
-Buscar un encargo por id y mostrar sus datos
- */
-    public void buscarEncargo(int id) {
-        if (estaEncargo(id) != null) {
+    public void listarEncargosCompletados(){
+        for (Encargo encargo: listaTareas) {
+            if(encargo.isCompletada()){
+                encargo.mostrarDatos();
+            }
+        }
+    }
+
+    public void buscarEncargoId(int id){
+        if (estaEncargo(id)!=null)
             estaEncargo(id).mostrarDatos();
-        } else {
-            System.out.println("No sta en la lista");
-        }
+        else
+            System.out.println("El id no se enscuentra en la lista");
     }
 
-/*
-Completar un encargo -> pasar su variable completada a true
- */
-
-
-    public void completarEncargo(int id) {
-        if(estaEncargo(id) != null) {
+    public void completarEncargo(int id){
+        if (estaEncargo(id)!=null && !estaEncargo(id).isCompletada()){
             estaEncargo(id).setCompletada(true);
+            System.out.println("Encargo completado correctamente");
         } else {
-            System.out.println("No esta en la lista");
+            System.out.println("El encargo no se puede completar, " +
+                    "no esta en la lista o ya esta completado");
         }
     }
-
-/*
-Mostrar un encargo que estan completados
- */
-public void listaCompletados() {
-    for (Encargo encargo : listaTareas) {
-        if (encargo.isCompletada()) {
-            encargo.mostrarDatos();
-        }
-    }
-}
-
-/*
-Completar una tarea -> Una tarea quedará completa si todos sus encargos
-estan completos
- */
-
-    public void completarTarea() {
-        for(Encargo encargo:listaTareas) {
-            if(!encargo.isCompletada()){
+    public void completarTarea(){
+        for (Encargo encargo: listaTareas) {
+            if (!encargo.isCompletada()){
                 System.out.println("No se puede completar la tarea");
                 return;
             }
         }
         completada = true;
-        System.out.println("Tarea comoletada");
-    }
-
-
-
-    public boolean borrarEncargo1(int id) {
-        return listaTareas.remove(estaEncargo(id));
+        System.out.println("tarea completada con exito");
     }
 
     public Persona[] getEncargados() {
