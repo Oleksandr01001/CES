@@ -88,7 +88,7 @@ class Cliente(var id: Int, var nombre: String) {
     // en caso de no estar el id en el carrito -> aviso de que no se encuentra
     // en caso de si estar en el carrito y solo existir uno, lo elimina
     // en caso de si estar en el carrito y existir varios, confirmacion de eliminar 1 o todos
-    fun borrarProducto() {
+    fun borrarProducto(id: Int) {
         
     }
 }
