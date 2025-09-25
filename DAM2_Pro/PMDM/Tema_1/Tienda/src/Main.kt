@@ -25,6 +25,8 @@ fun main() {
      */
 
     tienda.buscarProductosCategoria(Categoria.Ropa)
+    var cliente: Cliente = Cliente(1,"Olek")
+    cliente.agregarProductoCarrito(pantalones)
 
 
 

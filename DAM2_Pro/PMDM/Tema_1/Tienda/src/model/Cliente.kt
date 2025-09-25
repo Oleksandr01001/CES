@@ -73,7 +73,7 @@ class Cliente(var id: Int, var nombre: String) {
             println("No puedes pedir, no hay productos en carrito")
         } else{
             carrito.forEach {
-                factura+=it.precio
+                factura += it.precio
             }
             println("Debes un total de $factura")
             carrito.clear()
@@ -89,6 +89,6 @@ class Cliente(var id: Int, var nombre: String) {
     // en caso de si estar en el carrito y solo existir uno, lo elimina
     // en caso de si estar en el carrito y existir varios, confirmacion de eliminar 1 o todos
     fun borrarProducto(id: Int) {
-        
+
     }
 }
