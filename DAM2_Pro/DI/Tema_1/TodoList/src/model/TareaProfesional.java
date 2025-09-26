@@ -1,23 +1,38 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class TareaProfesional extends Tarea{
+
     private int presupuesto;
     private Date fechaLimite;
 
 
-    public TareaProfesional() {
+    public TareaProfesional(){}
+
+    @Override
+    public void enviarRecordatorio() {
+        for ( Persona persona : getEncargados() ) {
+            if (persona !=null){
+                System.out.printf("%s recuerda que completar %d tareas pendientes\n"
+                        ,persona.getNombre(),getListaTareas().size());
+            }
+
+        }
+
     }
 
-    public TareaProfesional(String titulo, String descripcion, int numeroPersonas, int presupuesto, Date fechaLimite) {
-        super(titulo, descripcion, numeroPersonas);
-        this.presupuesto = presupuesto;
+    public TareaProfesional(int id, String titulo, String descripcion, int numeroPersonas,
+                            int presupuesto, Date fechaLimite){
+        super(id,titulo,descripcion,numeroPersonas);
         this.fechaLimite = fechaLimite;
+        this.presupuesto = presupuesto;
     }
 
-    public TareaProfesional(String titulo, String descripcion, boolean prioritario, int numeroPersonas, int presupuesto, Date fechaLimite) {
-        super(titulo, descripcion, prioritario, numeroPersonas);
+    public TareaProfesional(int id, String titulo, String descripcion, boolean prioritario,
+                            int numeroPersonas, int presupuesto, Date fechaLimite) {
+        super(id,titulo, descripcion, prioritario, numeroPersonas);
         this.presupuesto = presupuesto;
         this.fechaLimite = fechaLimite;
     }

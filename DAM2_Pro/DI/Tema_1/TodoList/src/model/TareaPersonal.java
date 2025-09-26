@@ -7,13 +7,18 @@ public class TareaPersonal extends Tarea{
 
     public TareaPersonal() {}
 
-    public TareaPersonal(String titulo, String descripcion, boolean prioritario, int numeroPersonas, String ubicacion) {
-        super(titulo, descripcion, prioritario, numeroPersonas);
+    @Override
+    public void enviarRecordatorio() {
+        System.out.println("Enviar un recordatorio para reservar citio en "+ubicacion);
+    }
+
+    public TareaPersonal(int id, String titulo, String descripcion, boolean prioritario, int numeroPersonas, String ubicacion) {
+        super(id,titulo, descripcion, prioritario, numeroPersonas);
         this.ubicacion = ubicacion;
     }
 
-    public TareaPersonal(String titulo, String descripcion, int numeroPersonas, String ubicacion) {
-        super(titulo, descripcion, numeroPersonas);
+    public TareaPersonal(int id, String titulo, String descripcion, int numeroPersonas, String ubicacion) {
+        super(id,titulo, descripcion, numeroPersonas);
         this.ubicacion = ubicacion;
     }
 

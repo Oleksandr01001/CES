@@ -1,0 +1,33 @@
+package model;
+
+public class TareaOcio extends Tarea{
+    private String ubicacion;
+    private double presupuesto;
+
+
+    public TareaOcio() {
+    }
+
+    public TareaOcio(int id, String titulo, String descripcion, String fecha, Prioridad prioridad,
+                     boolean completada, String ubicacion, double presupuesto) {
+        super(id, titulo, descripcion, fecha, prioridad, completada);
+        this.ubicacion = ubicacion;
+        this.presupuesto = presupuesto;
+    }
+
+    public String getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public double getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(double presupuesto) {
+        this.presupuesto = presupuesto;
+    }
+}

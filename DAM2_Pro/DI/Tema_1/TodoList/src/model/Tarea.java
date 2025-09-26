@@ -1,68 +1,23 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-// crear el método que permite agregar un encargo
-// los encargos deben tener ID unico -> PONER AVISOS
-// crear el método que permite eliminar un encargo
-// para ello se pide el id del encargo y se quita de la lista -> PONER AVISOS
 
-/*
-Listar todos los encargos de una tarea
- */
+abstract public class Tarea {
 
-/*
-Buscar un encargo por id y mostrar sus datos
- */
-
-/*
-Completar un encargo -> pasar su variable completada a true
- */
-
-/*
-Mostrar un encargo que estan completados
- */
-
-/*
-Completar una tarea -> Una tarea quedará completa si todos sus encargos
-estan completos
- */
-
-/*
-Crear los metodos de:
-asignar a un encargo un responsable
-Para moder asignar un responsable al encargo, previamente debe estar como integrande del
-equipo
- */
-
-/*
-Cambiar responsable de tarea
- */
-
-/*
-Mostrar tareas por responsbale -> DNI
- */
-
-public class Tarea {
-
-    // una tarea tiene asociadas una serie de personas
-    // cuando se crea la tarea es necesario pedir cuantas personas (NO QUE PERSONAS)
-    // encargaran de la tarea
-
-    // variables
+    private int id;
     private String titulo, descripcion;
     private boolean prioritario, completada;
     private Persona[] encargados;
     private ArrayList<Encargo> listaTareas;
 
-    // constructores
     public Tarea() {
-
     }
 
-    public Tarea(String titulo, String descripcion, boolean prioritario,
+    public Tarea(int id,String titulo, String descripcion, boolean prioritario,
                  int numeroPersonas) {
-        // completada = false;
+        this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.prioritario = prioritario;
@@ -70,27 +25,15 @@ public class Tarea {
         listaTareas = new ArrayList<>();
     }
 
-    public Tarea(String titulo, String descripcion, int numeroPersonas) {
-        // completada = false;
-        // prioritario = false
+    public Tarea(int id, String titulo, String descripcion, int numeroPersonas) {
+        this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         encargados = new Persona[numeroPersonas];
         listaTareas = new ArrayList<>();
     }
 
-    // metodos -> getter / setter
-
-    // cada tarea puede asignar una persona
-    // solo se podrá asignar una persona si hay hueco disponible
-    // cada vez que se asigne una persona, se deberá colocar en el primer hueco
-    // disponible
-    // si no hay hueco, saltar un aviso,
-    // no podrás agregar dos personas que tengan el mismo DNI
-
-    // en una tarea se pueden quitar responsables. Solo podre quitar una tarea si el DNI
-    // que me indicas esta dentro de la lista de responsables. Mostrar aviso tanto para
-    // proceso OK como proceso no OK
+    public abstract void enviarRecordatorio();
 
     public void asignarResponsable(Persona persona) {
         for (int i = 0; i < encargados.length; i++) {
@@ -113,10 +56,6 @@ public class Tarea {
         }
         System.out.printf("La persona con DNI %s no esta en esta tarea%n", dni);
     }
-
-    // mostrar los datos de todos los usuarios que son responsables de dicha tarea
-    // en caso de no tener ninguna avisar
-    // en caso de tener huecos disponibles, avisar de cuantos
 
     public void mostrarResponsables() {
         int numeroHuecos = 0;
@@ -219,6 +158,15 @@ public class Tarea {
         System.out.println("tarea completada con exito");
     }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Persona[] getEncargados() {
         return encargados;
     }
@@ -270,15 +218,15 @@ public class Tarea {
     @Override
     public String toString() {
         return "Tarea{" +
-                "titulo='" + titulo + '\'' +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", prioritario=" + prioritario +
                 ", completada=" + completada +
+                ", encargados=" + Arrays.toString(encargados) +
+                ", listaTareas=" + listaTareas +
                 '}';
     }
 }
 
 
-// creamos un encargo.
-// Los encargos tienen una propiedad llamada descripcion,
-// una propiedad llamda id y una propiedad llamada completa
