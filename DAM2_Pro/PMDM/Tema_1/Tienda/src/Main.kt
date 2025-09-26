@@ -3,7 +3,7 @@ import model.Cliente
 import model.Producto
 import model.Tienda
 
-fun main() {
+fun main(){
 
     /*
     var camiseta: Producto = Producto(id = 1, precio = 14.99)
@@ -27,6 +27,7 @@ fun main() {
     tienda.buscarProductosCategoria(Categoria.Ropa)
     var cliente: Cliente = Cliente(1,"Olek")
     cliente.agregarProductoCarrito(pantalones)
+    cliente.mostrarCarrito()
 
 
 
