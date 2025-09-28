@@ -4,36 +4,53 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-abstract public class Tarea {
+ public class Tarea {
 
     private int id;
     private String titulo, descripcion;
     private boolean prioritario, completada;
     private Persona[] encargados;
     private ArrayList<Encargo> listaTareas;
+    private ArrayList<Tarea> tareas;
+    private Prioridad prioridad;
+
+
+
 
     public Tarea() {
+        listaTareas = new ArrayList<>();
+        tareas = new ArrayList<>();
+        encargados = new Persona[0];
     }
 
     public Tarea(int id,String titulo, String descripcion, boolean prioritario,
-                 int numeroPersonas) {
+                 int numeroPersonas, Prioridad prioridad) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.prioritario = prioritario;
         encargados = new Persona[numeroPersonas];
         listaTareas = new ArrayList<>();
+        tareas = new ArrayList<>();
+        this.prioridad = prioridad;
     }
 
-    public Tarea(int id, String titulo, String descripcion, int numeroPersonas) {
+    public Tarea(int id, String titulo, String descripcion, int numeroPersonas, Prioridad prioridad) {
         this.id = id;
         this.titulo = titulo;
         this.descripcion = descripcion;
         encargados = new Persona[numeroPersonas];
         listaTareas = new ArrayList<>();
+        tareas = new ArrayList<>();
+        this.prioridad = prioridad;
     }
 
-    public abstract void enviarRecordatorio();
+
+
+
+
+
+    //public abstract void enviarRecordatorio();
 
     public void asignarResponsable(Persona persona) {
         for (int i = 0; i < encargados.length; i++) {
@@ -74,8 +91,6 @@ abstract public class Tarea {
         } else {
             System.out.println("Todos los responsables estan ubicados");
         }
-
-
     }
 
     private boolean estaDNI(String dni) {
@@ -86,6 +101,13 @@ abstract public class Tarea {
         }
         return false;
     }
+
+
+
+
+
+
+
 
     private Encargo estaEncargo(int id) {
 
@@ -138,25 +160,84 @@ abstract public class Tarea {
             System.out.println("El id no se enscuentra en la lista");
     }
 
-    public void completarEncargo(int id){
-        if (estaEncargo(id)!=null && !estaEncargo(id).isCompletada()){
-            estaEncargo(id).setCompletada(true);
-            System.out.println("Encargo completado correctamente");
-        } else {
-            System.out.println("El encargo no se puede completar, " +
-                    "no esta en la lista o ya esta completado");
+     public void completarEncargo(int id){
+         if (estaEncargo(id)!=null && !estaEncargo(id).isCompletada()){
+             estaEncargo(id).setCompletada(true);
+             System.out.println("Encargo completado correctamente");
+         } else {
+             System.out.println("El encargo no se puede completar, " +
+                     "no esta en la lista o ya esta completado");
+         }
+     }
+
+
+
+
+
+
+
+
+     private Tarea estaTarea(int id) {
+         for (Tarea tarea : tareas) {
+             if (tarea.getId() == id) return tarea;
+         }
+         return null;
+     }
+
+     public void agregarTarea(Tarea tarea) {
+         if (estaTarea(tarea.getId()) != null) {
+             System.out.println("Error en el proceso, no se puede agregar");
+         } else {
+             tareas.add(tarea);
+             System.out.println("Agregado correctamente");
+         }
+     }
+
+     public void listarTareas() {
+        for (Tarea tarea: tareas) {
+            System.out.println(tarea);
         }
-    }
-    public void completarTarea(){
-        for (Encargo encargo: listaTareas) {
-            if (!encargo.isCompletada()){
-                System.out.println("No se puede completar la tarea");
-                return;
-            }
-        }
-        completada = true;
-        System.out.println("tarea completada con exito");
-    }
+     }
+
+     public void listarTareasCompletadas(){
+         for (Tarea tarea : tareas) {
+             if(tarea.isCompletada()){
+                 System.out.println(tarea);
+             }
+         }
+     }
+
+     public void listarTareasNoCompletadas(){
+         for (Tarea tarea : tareas) {
+             if(!tarea.isCompletada()){
+                 System.out.println(tarea);
+             }
+         }
+     }
+
+     public void completarTarea(){
+         for (Encargo encargo: listaTareas) {
+             if (!encargo.isCompletada()){
+                 System.out.println("No se puede completar la tarea");
+                 return;
+             }
+         }
+         completada = true;
+         System.out.println("Tarea completada con exito");
+     }
+
+
+     public void modificarTarea(int id) {
+
+     }
+
+
+
+
+
+
+
+
 
 
     public int getId() {
@@ -224,7 +305,7 @@ abstract public class Tarea {
                 ", prioritario=" + prioritario +
                 ", completada=" + completada +
                 ", encargados=" + Arrays.toString(encargados) +
-                ", listaTareas=" + listaTareas +
+                ", listaTareas=" + listaTareas+
                 '}';
     }
 }

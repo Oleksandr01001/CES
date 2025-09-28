@@ -11,6 +11,7 @@ public class TareaProfesional extends Tarea{
 
     public TareaProfesional(){}
 
+    /*
     @Override
     public void enviarRecordatorio() {
         for ( Persona persona : getEncargados() ) {
@@ -18,21 +19,20 @@ public class TareaProfesional extends Tarea{
                 System.out.printf("%s recuerda que completar %d tareas pendientes\n"
                         ,persona.getNombre(),getListaTareas().size());
             }
-
         }
-
     }
+     */
 
-    public TareaProfesional(int id, String titulo, String descripcion, int numeroPersonas,
+    public TareaProfesional(int id, String titulo, String descripcion, int numeroPersonas, Prioridad prioridad,
                             int presupuesto, Date fechaLimite){
-        super(id,titulo,descripcion,numeroPersonas);
+        super(id,titulo,descripcion,numeroPersonas,prioridad);
         this.fechaLimite = fechaLimite;
         this.presupuesto = presupuesto;
     }
 
     public TareaProfesional(int id, String titulo, String descripcion, boolean prioritario,
-                            int numeroPersonas, int presupuesto, Date fechaLimite) {
-        super(id,titulo, descripcion, prioritario, numeroPersonas);
+                            int numeroPersonas, Prioridad prioridad, int presupuesto, Date fechaLimite) {
+        super(id,titulo, descripcion, prioritario, numeroPersonas,prioridad);
         this.presupuesto = presupuesto;
         this.fechaLimite = fechaLimite;
     }
