@@ -109,7 +109,7 @@ public class MainPlanificador {
                                         idSubTarea = sc.nextInt();
                                         System.out.println("Introduce descripcion de subtarea: ");
                                         descripcionSubTarea = sc.next();
-                                        tarea.agregarEncargo(new Encargo(idSubTarea,descripcionSubTarea));
+                                        tareaProfesional.agregarEncargo(new Encargo(idSubTarea,descripcionSubTarea));
                                     }
 
                                     break;
@@ -178,7 +178,7 @@ public class MainPlanificador {
                                         idSubTarea = sc.nextInt();
                                         System.out.println("Introduce descripcion de subtarea: ");
                                         descripcionSubTarea = sc.next();
-                                        tarea.agregarEncargo(new Encargo(idSubTarea,descripcionSubTarea));
+                                        tareaPersonal.agregarEncargo(new Encargo(idSubTarea,descripcionSubTarea));
                                     }
                                     break;
                                 case 2:
