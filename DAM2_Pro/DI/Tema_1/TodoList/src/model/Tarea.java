@@ -225,9 +225,6 @@ import java.util.Scanner;
         if(estaTarea(id) != null) {
 
             Tarea tarea = estaTarea(id);
-            //TareaProfesional tareaProfesional = (TareaProfesional) estaTarea(id);
-            //TareaPersonal tareaPersonal = (TareaPersonal) estaTarea(id);
-
 
             int opcionTarea;
             int opcion;
@@ -235,8 +232,6 @@ import java.util.Scanner;
             String nuevoTitulo, nuevaDescripcion, dni, descripcionSubTarea;
             Prioridad nuevaPrioridad;
             int idSubTarea;
-
-
 
 
 
@@ -321,7 +316,6 @@ import java.util.Scanner;
                                 case 0:
                                     System.out.println("Saliedo de modificacion de la tarea profecional...");
                                     break;
-
                             }
 
                         } while (opcion != 0);
@@ -401,7 +395,6 @@ import java.util.Scanner;
                                 case 0:
                                     System.out.println("Saliedo de modificacion de la tarea personal...");
                                     break;
-
                             }
 
                         } while (opcion != 0);
