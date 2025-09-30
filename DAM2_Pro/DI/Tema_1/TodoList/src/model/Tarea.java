@@ -209,7 +209,7 @@ import java.util.Scanner;
          }
      }
 
-     public void completarTarea(){
+     /*public void completarTarea(int id){
          for (Encargo encargo: listaTareas) {
              if (!encargo.isCompletada()){
                  System.out.println("No se puede completar la tarea");
@@ -218,6 +218,18 @@ import java.util.Scanner;
          }
          completada = true;
          System.out.println("Tarea completada con exito");
+     }
+      */
+
+     public void completarTarea(int id){
+         Tarea tarea = estaTarea(id);
+         if (tarea!=null){
+             tarea.setCompletada(true);
+             System.out.println("Tarea completada");
+         }else{
+             System.out.println("No se puede completar la tarea");
+         }
+
      }
 
 

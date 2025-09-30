@@ -198,7 +198,9 @@ public class MainPlanificador {
                     tarea.listarTareas();
                     break;
                 case 4:
-                    tarea.completarTarea();
+                    System.out.println("Introduce id de tarea:");
+                    int idTarea = sc.nextInt();
+                    tarea.completarTarea(idTarea);
                     break;
                 case 5:
                     tarea.listarTareasCompletadas();
