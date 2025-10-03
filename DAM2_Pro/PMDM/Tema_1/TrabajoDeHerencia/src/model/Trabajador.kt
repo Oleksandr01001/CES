@@ -1,22 +1,21 @@
 package model
 
-class Trabajador(nombre: String, apellido: String, dni: String, var salario: Int, var nPagas: Int) :
+abstract class Trabajador(nombre: String, apellido: String, dni: String, var salario: Double) :
     Persona(nombre, apellido, dni) {
 
-    var seguro: Boolean = false
+
 
     constructor(nombre : String, apellido: String, dni: String,
-                salario: Int, nPagas: Int, telefono: Int, correo: String, seguro: Boolean
-    ): this(nombre,apellido,dni,salario,nPagas) {
-            this.seguro = seguro;
+                salario: Double, telefono: Int, correo: String
+    ): this(nombre,apellido,dni,salario) {
         this.telefono = telefono
         this.correo = correo
         }
 
+    abstract fun calcularSalarioNeto() : Double;
+
     override fun mostrarDatos() {
         super.mostrarDatos()
         println("Salario es: $salario")
-        println("Numero pagas es: $nPagas")
-        println("Seguro es: $seguro")
     }
 }
