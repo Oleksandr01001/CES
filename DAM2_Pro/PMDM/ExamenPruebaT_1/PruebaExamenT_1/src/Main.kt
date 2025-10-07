@@ -6,5 +6,8 @@ fun main() {
     var combate = Combate()
 
     combate.agregarHeroe()
-
+    //combate.agregarHeroe()
+    combate.listarHeroes()
+    combate.listarArmas()
+    //combate.enfrentarHeroes()
 }
