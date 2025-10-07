@@ -1,27 +1,30 @@
 package model
 
-import kotlin.random.Random
-import kotlin.random.nextInt
+class Jefe(
+    nombre: String, apellido: String, dni: String,
+    salario: Double, var nivelResp: Int
+) : Trabajador(nombre, apellido, dni, salario) {
 
-class Jefe (nombre: String, apellido: String, dni: String, salario: Double, var nivelResponsabilidad: Int)
-    : Trabajador(nombre,apellido,dni,salario) {
-
-
-    override fun calcularSalarioNeto(): Double {
-        nivelResponsabilidad = Random.nextInt(1,6)
-        if (nivelResponsabilidad >= 3) {
-            salario *= 1.03
-            return salario
-        } else {
-            salario *= 0.97
-            return salario
-        }
+    fun incrementarResponsabilidad(){
+        if (nivelResp<5)
+            nivelResp++
     }
 
+    fun decrementarResponsabilidad(){
+        if (nivelResp>0)
+            nivelResp--
+    }
 
     override fun mostrarDatos() {
         super.mostrarDatos()
-        println("Nivel responsabilidad: $nivelResponsabilidad")
+        println("nivelResp = ${nivelResp}")
     }
-
+    override fun calcularSalarioNeto(): Double {
+        if (nivelResp>=3){
+            salario *= 1.03
+        } else {
+            salario *= 0.97
+        }
+        return salario
+    }
 }
