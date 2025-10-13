@@ -24,7 +24,7 @@ class Cliente(var id: Int, var nombre: String) {
         }
     }
 
-    // mostrar el producto que esta en una posicion indicada
+
     fun accesoPorPosicion(posicon: Int) {
         if (posicon > carrito.size - 1) {
             println("ID fuera de rango")
@@ -35,15 +35,6 @@ class Cliente(var id: Int, var nombre: String) {
 
     fun borrarElementos(id: Int) {
 
-
-        /*carrito.find {
-            return@find true
-        }
-
-
-        carrito.removeAll(carrito.filter {
-            return@filter true
-        })*/
         var listaFiltrada = carrito.filter {
             return@filter it.id == id
         }
@@ -73,7 +64,7 @@ class Cliente(var id: Int, var nombre: String) {
             println("No puedes pedir, no hay productos en carrito")
         } else{
             carrito.forEach {
-                factura += it.precio
+                factura+=it.precio
             }
             println("Debes un total de $factura")
             carrito.clear()
@@ -81,14 +72,4 @@ class Cliente(var id: Int, var nombre: String) {
         }
     }
 
-    // hacer un metodo para calcular la factura del cliente
-    // cuando un cliente pide la factura se muestra por consola y vacia el carrito
-
-    // eliminar un producto del carrito
-    // en caso de no estar el id en el carrito -> aviso de que no se encuentra
-    // en caso de si estar en el carrito y solo existir uno, lo elimina
-    // en caso de si estar en el carrito y existir varios, confirmacion de eliminar 1 o todos
-    fun borrarProducto(id: Int) {
-
-    }
 }

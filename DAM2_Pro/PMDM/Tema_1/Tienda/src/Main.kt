@@ -1,73 +1,135 @@
-import model.Categoria
-import model.Cliente
-import model.Producto
-import model.Tienda
+import model.*
 
-fun main(){
+fun main() {
 
-    /*
-    var camiseta: Producto = Producto(id = 1, precio = 14.99)
-    var zapatillas: Producto = Producto(2,20.0)
-    var gorra = Producto(4,20.0, descripcion = "Gorra molona")
-    var cartera = Producto(5, 5.0, Categoria.Ropa,"Cartera", "Catrera...")
+    var tienda = Tienda("Tienda")
+    var cliente: Cliente? = null
+    var salir = false
 
-     */
-    var pantalones = Producto(3,30.0, Categoria.Ropa, "Pantalones")
+    while (!salir) {
+        println("1. Agregar producto")
+        println("2. Mostrar almacen")
+        println("3. Vender producto")
+        println("4. Buscar por categoria")
+        println("5. Buscar por id")
+        println("6. Crear cliente")
+        println("7. Agregar al carrito")
+        println("8. Mostrar carrito")
+        println("9. Ver producto del carrito")
+        println("10. Borrar del carrito")
+        println("11. Pedir factura")
+        println("0. Salir")
+        print("Opcion: ")
 
+        var opcion = readln().toInt()
 
-    var tienda: Tienda = Tienda("Tienda")
-    /*
-    tienda.agregarProducto(gorra)
-    tienda.mostrarAlmacen()
-    tienda.venderProducto(4)
-    tienda.mostrarAlmacen()
+        when (opcion) {
 
-     */
+            1 -> {
+                print("id: ")
+                var id = readln().toInt()
+                print("precio: ")
+                var precio = readln().toDouble()
+                println("1. Tecnologia  2. Muebles  3. Ropa  4. Generica")
+                print("elige categoria: ")
+                var num = readln().toInt()
+                var cat = if (num == 1) Categoria.Tecnologia
+                else if (num == 2) Categoria.Muebles
+                else if (num == 3) Categoria.Ropa
+                else Categoria.Generica
+                print("nombre: ")
+                var nombre = readln()
+                print("descripcion: ")
+                var desc = readln()
+                var p = Producto(id, precio, cat, nombre, desc)
+                tienda.agregarProducto(p)
+            }
 
-    tienda.buscarProductosCategoria(Categoria.Ropa)
-    var cliente: Cliente = Cliente(1,"Olek")
-    cliente.agregarProductoCarrito(pantalones)
-    cliente.mostrarCarrito()
+            2 -> tienda.mostrarAlmacen()
 
+            3 -> {
+                print("id del producto a vender: ")
+                var id = readln().toInt()
+                tienda.venderProducto(id)
+            }
 
+            4 -> {
+                println("1. Tecnologia  2. Muebles  3. Ropa  4. Generica")
+                print("elige categoria: ")
+                var num = readln().toInt()
+                var cat = if (num == 1) Categoria.Tecnologia
+                else if (num == 2) Categoria.Muebles
+                else if (num == 3) Categoria.Ropa
+                else Categoria.Generica
+                tienda.buscarProductosCategoria(cat)
+            }
 
+            5 -> {
+                print("id a buscar: ")
+                var id = readln().toInt()
+                tienda.buscarProductoId(id)
+            }
 
-    /*
-    val listaProductos: Array<Producto?> = arrayOf(camiseta, zapatillas, pantalones, gorra, cartera)
-    val listaProductosVasio: Array<Producto?> = arrayOfNulls(5)
-    val listaClientes: Array<String> = arrayOf("Borja","Artur")
+            6 -> {
+                print("id cliente: ")
+                var id = readln().toInt()
+                print("nombre: ")
+                var nombre = readln()
+                cliente = Cliente(id, nombre)
+                println("cliente creado")
+            }
 
-    listaProductos[0]?.mostrarDatos()
-    listaProductos.last()?.precio=20.0
-    listaProductos[listaProductos.size-1]?.mostrarDatos()
-    listaProductos[2] = null
-     */
+            7 -> {
+                if (cliente == null) {
+                    println("crea un cliente primero")
+                } else {
+                    print("id del producto para agregar al carrito: ")
+                    var id = readln().toInt()
+                    var prod = tienda.almacen.find { it?.id == id }
+                    if (prod != null) {
+                        cliente!!.agregarProductoCarrito(prod)
+                    } else {
+                        println("producto no encontrado")
+                    }
+                }
+            }
 
+            8 -> {
+                if (cliente == null) println("no hay cliente")
+                else cliente!!.mostrarCarrito()
+            }
 
+            9 -> {
+                if (cliente == null) println("no hay cliente")
+                else {
+                    print("posicion: ")
+                    var pos = readln().toInt()
+                    cliente!!.accesoPorPosicion(pos)
+                }
+            }
 
+            10 -> {
+                if (cliente == null) println("no hay cliente")
+                else {
+                    print("id del producto a borrar: ")
+                    var id = readln().toInt()
+                    cliente!!.borrarElementos(id)
+                }
+            }
 
-    /*
-    for (i in listaProductos) {
-        i?.mostrarDatos()
+            11 -> {
+                if (cliente == null) println("no hay cliente")
+                else cliente!!.pedirFactura()
+            }
+
+            0 -> {
+                println("saliendo...")
+                salir = true
+            }
+
+            else -> println("opcion no valida")
+        }
+
+        println()
     }
-     */
-
-    /*
-    listaProductos.forEach {
-        it?.mostrarDatos()
-    }
-     */
-
-    /*
-    listaProductos.forEachIndexed { index, producto ->
-        println("Mostrando producto en posicion $index")
-        producto?.mostrarDatos()
-    }
-     */
-
-
-
-
-
-
 }
