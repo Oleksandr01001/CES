@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">HolaMundoCole</string>
+    <string name="boton_pulsar">Saludar</string>
+    <string name="texto_inicial">APP inicial</string>
+    <string name="edit_nombre">Edit nombre</string>
+    <string name="saludo_snackbar">Primera app android</string>
+
 </resources>
