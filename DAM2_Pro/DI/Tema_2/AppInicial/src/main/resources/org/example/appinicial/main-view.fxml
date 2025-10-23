@@ -21,8 +21,8 @@
    <bottom>
       <FlowPane alignment="CENTER" hgap="20.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="bottonPulsar" mnemonicParsing="false" text="Pulsar" />
-            <Button fx:id="bottonVaciar" mnemonicParsing="false" text="Vaciar" />
+            <Button fx:id="buttonPulsar" mnemonicParsing="false" text="Pulsar" />
+            <Button fx:id="buttonVaciar" mnemonicParsing="false" text="Vaciar" />
          </children>
       </FlowPane>
    </bottom>
@@ -33,4 +33,7 @@
          </BorderPane.margin>
       </TextField>
    </center>
+   <right>
+      <Button fx:id="butonLimpiar" mnemonicParsing="false" text="Limpiar" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
