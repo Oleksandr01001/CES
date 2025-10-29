@@ -6,6 +6,13 @@ module org.example.appformulario {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
 
-    opens org.example.appformulario to javafx.fxml;
+    requires lombok;
+
     exports org.example.appformulario;
+    exports org.example.appformulario.Controller;
+    opens org.example.appformulario.Controller to javafx.fxml;
+
+
+    opens org.example.appformulario.model to lombok;
+    opens org.example.appformulario to javafx.fxml, lombok;
 }
