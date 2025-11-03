@@ -1,0 +1,7 @@
+Nueva cabecera al principio r+
+Creando archivo en python usando with as
+Anadido al final con r+
+Otra opcion con a append
+Escribiendo
+listas
+en ficheros
