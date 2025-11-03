@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="BotonNum1" mnemonicParsing="false" prefHeight="90.0" prefWidth="179.0" text="1" />
+            <Button fx:id="BotonNum2" mnemonicParsing="false" prefHeight="152.0" prefWidth="222.0" text="2" GridPane.columnIndex="1" />
+            <Button fx:id="BotonNum3" mnemonicParsing="false" prefHeight="93.0" prefWidth="216.0" text="3" GridPane.columnIndex="2" />
+            <Button fx:id="BotonNum4" mnemonicParsing="false" prefHeight="160.0" prefWidth="290.0" text="4" GridPane.rowIndex="1" />
+            <Button fx:id="BotonNum5" mnemonicParsing="false" prefHeight="184.0" prefWidth="322.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="BotonNum6" mnemonicParsing="false" prefHeight="247.0" prefWidth="399.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button fx:id="BotonNum7" mnemonicParsing="false" prefHeight="173.0" prefWidth="380.0" text="7" GridPane.rowIndex="2" />
+            <Button fx:id="BotonNum8" mnemonicParsing="false" prefHeight="220.0" prefWidth="405.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="BotonRecet" mnemonicParsing="false" prefHeight="96.0" prefWidth="247.0" text="R" GridPane.rowIndex="3" />
+            <Button fx:id="BotonNum0" mnemonicParsing="false" prefHeight="82.0" prefWidth="198.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button fx:id="BotonIgual" mnemonicParsing="false" prefHeight="76.0" prefWidth="185.0" text="=" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button fx:id="BotonNum9" mnemonicParsing="false" prefHeight="144.0" prefWidth="314.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="BotonMas" mnemonicParsing="false" prefHeight="114.0" prefWidth="209.0" text="+" GridPane.columnIndex="3" />
+            <Button fx:id="BotonMenos" mnemonicParsing="false" prefHeight="169.0" prefWidth="298.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="BotonPor" mnemonicParsing="false" prefHeight="170.0" prefWidth="297.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="BotonEntre" mnemonicParsing="false" prefHeight="92.0" prefWidth="194.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="BotonRaiz" managed="false" mnemonicParsing="false" prefHeight="154.0" prefWidth="212.0" text="√" visible="false" GridPane.columnIndex="4" />
+            <Button fx:id="BotonSin" mnemonicParsing="false" prefHeight="112.0" prefWidth="197.0" text="sin" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button fx:id="BotonCos" mnemonicParsing="false" prefHeight="144.0" prefWidth="214.0" text="cos" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button fx:id="BotonTan" mnemonicParsing="false" prefHeight="153.0" prefWidth="289.0" text="tan" visible="false" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <top>
+      <VBox prefHeight="105.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="65.0" prefWidth="600.0">
+               <children>
+                  <Label fx:id="LabelProceso" prefHeight="146.0" prefWidth="604.0" text="Proceso">
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="LabelSum" alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="601.0" text="Suma">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="7.0" prefWidth="600.0">
+               <children>
+                  <RadioButton fx:id="RadioB" mnemonicParsing="false" text="B">
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </RadioButton>
+                  <RadioButton fx:id="RadioC" mnemonicParsing="false" text="C">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets right="20.0" />
+                     </padding>
+                  </RadioButton>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+</BorderPane>
