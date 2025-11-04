@@ -1,5 +1,4 @@
 package org.example.appformulario.Controller;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -14,14 +13,18 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.example.appformulario.HelloApplication;
 import org.example.appformulario.model.Usuario;
+import org.example.appformulario.HelloApplication;
 import org.example.appformulario.model.Usuario;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class FormController implements Initializable {
 
@@ -176,26 +179,25 @@ public class FormController implements Initializable {
 
 
                 // limpiar todos los datso
-            }
-            else if (actionEvent.getSource() == botonDetalle) {
+            } else if (actionEvent.getSource() == botonDetalle) {
                 int posicionSeleccionada = listViewUsuarios.getSelectionModel().getSelectedIndex();
                 Usuario usuarioSeleccionado = listViewUsuarios.getSelectionModel().getSelectedItem();
-                System.out.println("La posicion seleccionada es "+posicionSeleccionada);
-                System.out.println("El elemento seleccionado es "+usuarioSeleccionado.getCorreo());
-            }
-            else if (actionEvent.getSource() == botonEliminar) {
+                System.out.println("La posicion seleccionada es " + posicionSeleccionada);
+                System.out.println("El elemento seleccionado es " + usuarioSeleccionado.getCorreo());
+            } else if (actionEvent.getSource() == botonEliminar) {
                 if (listViewUsuarios.getSelectionModel().getSelectedIndex() != -1) {
                     listaUsuarios.remove(listViewUsuarios.getSelectionModel().getSelectedIndex());
                 } else {
                     System.out.println("No hay nada seleccionado");
-
+                    Stage ventanaDialogo = new Stage();
                     try {
-                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getClass().getResource("dialogo-view.fxml"));
-                        Stage vantanaDialogo = new Stage();
+                        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("dialogo-view.fxml"));
                         Scene scene = new Scene(loader.load());
-                        vantanaDialogo.setScene(scene);
-                        vantanaDialogo.setTitle("Confirmacion");
-                        vantanaDialogo.show();
+                        ventanaDialogo.setScene(scene);
+                        ventanaDialogo.setTitle("Confirmacion");
+                        ventanaDialogo.setResizable(false);
+                        ventanaDialogo.initModality(Modality.APPLICATION_MODAL);
+                        ventanaDialogo.showAndWait();
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

@@ -7,6 +7,7 @@ module org.example.appformulario {
     requires net.synedra.validatorfx;
 
     requires lombok;
+    requires java.desktop;
 
     exports org.example.appformulario;
     exports org.example.appformulario.Controller;

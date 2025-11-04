@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="panelGeneral" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.calculadora.controller.CalculadoraController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -19,7 +19,6 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -44,10 +43,6 @@
             <Button fx:id="BotonMenos" mnemonicParsing="false" prefHeight="169.0" prefWidth="298.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button fx:id="BotonPor" mnemonicParsing="false" prefHeight="170.0" prefWidth="297.0" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Button fx:id="BotonEntre" mnemonicParsing="false" prefHeight="92.0" prefWidth="194.0" text="/" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button fx:id="BotonSin" mnemonicParsing="false" prefHeight="112.0" prefWidth="197.0" text="sin" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-            <Button fx:id="BotonCos" mnemonicParsing="false" prefHeight="144.0" prefWidth="214.0" text="cos" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Button fx:id="BotonTan" mnemonicParsing="false" prefHeight="153.0" prefWidth="289.0" text="tan" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Button fx:id="BotonRaiz" mnemonicParsing="false" prefHeight="114.0" prefWidth="275.0" text="raiz" GridPane.columnIndex="4" />
          </children>
          <BorderPane.margin>
             <Insets top="10.0" />
@@ -68,7 +63,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="LabelSum" alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="601.0" text="Suma">
+                  <Label fx:id="LabelSuma" alignment="CENTER_RIGHT" prefHeight="62.0" prefWidth="601.0" text="Suma">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -80,7 +75,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="7.0" prefWidth="600.0">
                <children>
-                  <RadioButton fx:id="RadioB" mnemonicParsing="false" text="B">
+                  <RadioButton fx:id="RadioB" mnemonicParsing="false" selected="true" text="B">
                      <padding>
                         <Insets right="20.0" />
                      </padding>
@@ -101,4 +96,26 @@
          </children>
       </VBox>
    </top>
+   <right>
+      <GridPane fx:id="parteC" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="BotonRaiz" mnemonicParsing="false" prefHeight="132.0" prefWidth="180.0" text="raiz" />
+            <Button fx:id="BotonSin" mnemonicParsing="false" prefHeight="135.0" prefWidth="185.0" text="sin" GridPane.rowIndex="1" />
+            <Button fx:id="BotonCos" mnemonicParsing="false" prefHeight="110.0" prefWidth="164.0" text="cos" GridPane.rowIndex="2" />
+            <Button fx:id="BotonTan" mnemonicParsing="false" prefHeight="128.0" prefWidth="188.0" text="tan" GridPane.rowIndex="3" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </right>
 </BorderPane>
