@@ -44,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editCorreo" />
 
     <Spinner
+        android:entries="@array/plataforma"
         android:layout_marginTop="12dp"
         android:id="@+id/spinnerPerfil"
         android:layout_width="wrap_content"
