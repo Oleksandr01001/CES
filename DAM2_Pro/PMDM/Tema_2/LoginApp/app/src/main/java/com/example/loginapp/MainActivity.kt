@@ -1,6 +1,6 @@
 package com.example.loginapp
 
-import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -11,33 +11,20 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.transition.Visibility
 import com.example.loginapp.databinding.ActivityMainBinding
-import com.google.android.material.button.MaterialButton
+import com.example.loginapp.model.Usuario
+import com.example.loginapp.ui.activity.SecondActivity
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener{
-
+class MainActivity : AppCompatActivity(), View.OnClickListener,
+    CompoundButton.OnCheckedChangeListener,
+    AdapterView.OnItemSelectedListener {
     lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.botonLogin.setOnClickListener { view ->
-            val correo = binding.editCorreo.text.toString().trim()
-            val contrasena = binding.editPass.text.toString().trim()
-
-            if (correo.isEmpty() || contrasena.isEmpty()){
-                Snackbar.make(view, "Introduce todos los datos", Snackbar.LENGTH_SHORT).show()
-            } else if (correo == "admin" && contrasena == "admin"){
-                Snackbar.make(view,"Has entrado correctamente", Snackbar.LENGTH_LONG).show()
-            } else {
-                Snackbar.make(view,"Los datos son incorrectos", Snackbar.LENGTH_SHORT).show()
-            }
-        }
-
-
-        acciones()
+        acciones();
     }
 
     private fun acciones() {
@@ -48,8 +35,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CompoundButton.O
         binding.botonFacebook.setOnClickListener(this)
         binding.checkRecordar.setOnCheckedChangeListener(this)
         binding.spinnerPerfil.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener
-            {
+            object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
@@ -57,36 +43,81 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CompoundButton.O
                     id: Long
                 ) {
 
-                    binding.botonFacebook.visibility = View.INVISIBLE
-                    binding.botonGit.visibility = View.INVISIBLE
-                    binding.botonGoogle.visibility = View.INVISIBLE
-                    when(position) {
-                        0->{
-                            binding.botonGoogle.visibility = View.VISIBLE
+                    binding.botonFacebook.visibility = View.INVISIBLE;
+                    binding.botonGit.visibility = View.INVISIBLE;
+                    binding.botonGoogle.visibility = View.INVISIBLE;
+
+                    when (position) {
+                        0 -> {
+                            binding.botonGoogle.visibility = View.VISIBLE;
                         }
-                        1->{
-                            binding.botonGit.visibility = View.VISIBLE
+
+                        1 -> {
+                            binding.botonGit.visibility = View.VISIBLE;
                         }
-                        2->{
-                            binding.botonFacebook.visibility = View.VISIBLE
+
+                        2 -> {
+                            binding.botonFacebook.visibility = View.VISIBLE;
                         }
                     }
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-
                 }
 
             }
     }
 
     override fun onClick(v: View?) {
-        when(v?.id) {
+        when (v?.id) {
+            binding.botonFacebook.id -> {}
             binding.botonGit.id -> {}
             binding.botonGoogle.id -> {}
-            binding.botonFacebook.id -> {}
-            binding.botonLogin.id -> {}
+            binding.botonLogin.id -> {
+
+                if (binding.editPass.text.isNotEmpty() && binding.editCorreo.text.isNotEmpty()) {
+                    if (binding.editPass.text.toString().equals("admin")
+                        && binding.editCorreo.text.toString().equals("admin@admin.com", true)
+                    ) {
+                        val intent: Intent = Intent(
+                            applicationContext,
+                            SecondActivity::class.java
+                        )
+
+                        val usuario: Usuario = Usuario(binding.editCorreo.text.toString(),
+                            binding.editPass.text.toString(),
+                            binding.spinnerPerfil.selectedItem.toString())
+
+                        intent.putExtra("usuario",usuario)
+                        // intent.putExtra("correo",binding.editCorreo.text.toString())
+                        // intent.putExtra("pass",binding.editPass.text.toString())
+                        // intent.putExtra("plataforma",binding.spinnerPerfil.selectedItem.toString())
+                        startActivity(intent)
+                    } else {
+                        Snackbar.make(
+                            binding.root, "Datos incorrectos",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+
+                } else {
+                    Snackbar.make(
+                        binding.root, "Faltan datos",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
+                }
+
+
+            }
         }
+    }
+
+    override fun onCheckedChanged(
+        buttonView: CompoundButton,
+        isChecked: Boolean
+    ) {
+        binding.botonLogin.isEnabled = isChecked
     }
 
     override fun onItemSelected(
@@ -101,19 +132,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, CompoundButton.O
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
-
-    override fun onCheckedChanged(
-        buttonView: CompoundButton,
-        isChecked: Boolean
-    ) {
-        binding.botonLogin.isEnabled = isChecked
-    }
-
-
 }
-
-
-
-
-
-

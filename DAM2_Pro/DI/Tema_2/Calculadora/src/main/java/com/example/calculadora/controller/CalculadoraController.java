@@ -122,6 +122,7 @@ public class CalculadoraController implements Initializable {
 
 
     private void initGUI() {
+        LabelProceso.setText(null);
         LabelSuma.setText(null);
         if (RadioC.isSelected()) {
             panelGeneral.setRight(parteC);
@@ -169,51 +170,76 @@ public class CalculadoraController implements Initializable {
 
     class ManejoAcciones implements EventHandler<ActionEvent> {
 
+
         @Override
         public void handle(ActionEvent actionEvent) {
-            if (actionEvent.getSource() == BotonNum1) {
-                LabelSuma.setText("1");
-            } else if (actionEvent.getSource() == BotonNum2) {
-                LabelSuma.setText("2");
-            } else if (actionEvent.getSource() == BotonNum3) {
-                LabelSuma.setText("3");
-            } else if (actionEvent.getSource() == BotonNum4) {
-                LabelSuma.setText("4");
-            } else if (actionEvent.getSource() == BotonNum5) {
-                LabelSuma.setText("5");
-            } else if (actionEvent.getSource() == BotonNum6) {
-                LabelSuma.setText("6");
-            } else if (actionEvent.getSource() == BotonNum7) {
-                LabelSuma.setText("7");
-            } else if (actionEvent.getSource() == BotonNum8) {
-                LabelSuma.setText("8");
-            } else if (actionEvent.getSource() == BotonNum9) {
-                LabelSuma.setText("9");
-            } else if (actionEvent.getSource() == BotonNum0) {
-                LabelSuma.setText("0");
-            } else if (actionEvent.getSource() == BotonMas) {
-                LabelSuma.setText("+");
-            } else if (actionEvent.getSource() == BotonMenos) {
-                LabelSuma.setText("-");
-            } else if (actionEvent.getSource() == BotonPor) {
-                LabelSuma.setText("*");
-            } else if (actionEvent.getSource() == BotonIgual) {
-                LabelSuma.setText("=");
-            } else if (actionEvent.getSource() == BotonEntre) {
-                LabelSuma.setText("/");
-            } else if (actionEvent.getSource() == BotonRaiz) {
-                LabelSuma.setText("2");
-            } else if (actionEvent.getSource() == BotonSin) {
-                LabelSuma.setText("2");
-            } else if (actionEvent.getSource() == BotonCos) {
-                LabelSuma.setText("2");
-            } else if (actionEvent.getSource() == BotonTan) {
-                LabelSuma.setText("2");
-            } else if (actionEvent.getSource() == BotonRecet) {
-                LabelSuma.setText(null);
+            Object ae = actionEvent.getSource();
+            String actual = LabelSuma.getText();
+            if (actual == null) actual = "";
+
+
+
+            if (ae == BotonNum0) {
+                LabelSuma.setText(actual + "0");
+            } else if (ae == BotonNum1) {
+                LabelSuma.setText(actual + "1");
+            } else if (ae == BotonNum2) {
+                LabelSuma.setText(actual + "2");
+            } else if (ae == BotonNum3) {
+                LabelSuma.setText(actual + "3");
+            } else if (ae == BotonNum4) {
+                LabelSuma.setText(actual + "4");
+            } else if (ae == BotonNum5) {
+                LabelSuma.setText(actual + "5");
+            } else if (ae == BotonNum6) {
+                LabelSuma.setText(actual + "6");
+            } else if (ae == BotonNum7) {
+                LabelSuma.setText(actual + "7");
+            } else if (ae == BotonNum8) {
+                LabelSuma.setText(actual + "8");
+            } else if (ae == BotonNum9) {
+                LabelSuma.setText(actual + "9");
             }
 
+
+
+            else if (ae == BotonMas) {
+                LabelSuma.setText("+");
+            } else if (ae == BotonMenos) {
+                LabelSuma.setText("-");
+            } else if (ae == BotonPor) {
+                LabelSuma.setText("*");
+            } else if (ae == BotonEntre) {
+                LabelSuma.setText("/");
+            } else if (ae == BotonRaiz) {
+                LabelSuma.setText("√");
+            } else if (ae == BotonSin) {
+                LabelSuma.setText("sin");
+            } else if (ae == BotonCos) {
+                LabelSuma.setText("cos");
+            } else if (ae == BotonTan) {
+                LabelSuma.setText("tan");
+            }
+
+
+
+            else if (ae == BotonIgual) {
+                LabelSuma.setText("=");
+            }
+
+
+
+
+            else if (ae == BotonRecet) {
+                LabelSuma.setText("");
+                LabelProceso.setText("");
+            }
+
+
+
         }
+
+
     }
 
 
