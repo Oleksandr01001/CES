@@ -22,7 +22,7 @@ fun main() {
 
 fun tryLogin(username: String, password: String): Boolean {
     return try {
-        val url = URI("http://192.168.2.216/a/fuerzabruta/postraw.php?username=$username&password=$password").toURL()
+        val url = URI("http://http://192.168.2.167/dashboard/username=$username&password=$password").toURL()
         val connection = url.openConnection()
         val input = connection.getInputStream()
         val buffer = BufferedReader(InputStreamReader(input))

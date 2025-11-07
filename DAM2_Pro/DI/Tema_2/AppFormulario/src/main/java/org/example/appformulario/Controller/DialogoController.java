@@ -1,43 +1,50 @@
 package org.example.appformulario.Controller;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import org.example.appformulario.model.Usuario;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.scene.control.Label;
-import org.example.appformulario.model.Usuario;
 
 public class DialogoController implements Initializable {
 
+    @FXML
+    private Label textoNombre, textoLocalizacion, textoGenero, textoEdad, textoMail;
 
     @FXML
-    private Label textoEdad;
+    private Button botonContestar;
 
-    @FXML
-    private Label textoGenero;
-
-    @FXML
-    private Label textoLocalizacion;
-
-    @FXML
-    private Label textoMail;
-
-    @FXML
-    private Label textoNombre;
+    private FormController formController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        botonContestar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println("Pulsado el contestar");
+                formController.actualizarUsuario(null);
+                ((Stage)botonContestar.getScene().getWindow()).close();
+            }
+        });
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setFormController(FormController controller){
+        this.formController = controller;
+    }
+
+    public void setUsuario(Usuario usuario){
         textoNombre.setText(usuario.getNombre());
-        textoMail.setText(usuario.getNombre());
+        textoMail.setText(usuario.getCorreo());
         textoGenero.setText(usuario.getGenero());
         textoEdad.setText(String.valueOf(usuario.getEdad()));
-        textoLocalizacion.setText(String.valueOf(usuario.getLocalizacion()));
-
+        textoLocalizacion.setText(usuario.getLocalizacion());
     }
 }
