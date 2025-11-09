@@ -149,10 +149,32 @@ public class FormController implements Initializable {
     }
 
     public void actualizarUsuario(Usuario u) {
-        // actualizar el usuario
-        System.out.println("Contestacion realizada con exito");
+        if (u == null) return;
 
+        // Buscar por correo (lo usas como clave única)
+        int idx = -1;
+        for (int i = 0; i < listaUsuarios.size(); i++) {
+            if (listaUsuarios.get(i).getCorreo().equalsIgnoreCase(u.getCorreo())) {
+                idx = i;
+                break;
+            }
+        }
+
+        // Si no encontró por correo, usa la selección actual
+        if (idx == -1) {
+            idx = listViewUsuarios.getSelectionModel().getSelectedIndex();
+        }
+
+        if (idx >= 0) {
+            listaUsuarios.set(idx, u);
+            listViewUsuarios.getSelectionModel().select(idx);
+            listViewUsuarios.refresh();
+            System.out.println("Usuario actualizado: " + u.getCorreo());
+        } else {
+            System.out.println("No se encontró usuario para actualizar.");
+        }
     }
+
 
     class ManejoActions implements EventHandler<ActionEvent> {
 
@@ -186,7 +208,8 @@ public class FormController implements Initializable {
                 }
 
                 // limpiar todos los datso
-            } else if (actionEvent.getSource() == botonDetalle || actionEvent.getSource() == menuDetalle ) {
+            }
+            else if (actionEvent.getSource() == botonDetalle || actionEvent.getSource() == menuDetalle ) {
                 int posicionSeleccionada = listViewUsuarios.getSelectionModel().getSelectedIndex();
                 if (posicionSeleccionada != -1) {
                     Usuario usuario = listViewUsuarios.getSelectionModel().getSelectedItem();
@@ -233,8 +256,9 @@ public class FormController implements Initializable {
                 }
 
             }
-
-
+            else if (actionEvent.getSource() == menuLista){
+                toggleLista.setSelected(!toggleLista.isSelected());
+            }
         }
     }
 }
