@@ -11,6 +11,7 @@
     android:layout_marginBottom="10dp"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -29,8 +30,8 @@
         android:id="@+id/textAltura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Introduce altura"
-        android:inputType="number"
+        android:hint="Introduce altura"
+        android:inputType="numberDecimal"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,46 +41,37 @@
         android:id="@+id/textPeso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Introduce su peso"
-        android:inputType="number"
+        android:hint="Introduce su peso"
+        android:inputType="numberDecimal"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAltura" />
 
 
-
-
-
     <RadioGroup
         android:id="@+id/radioGrupo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPeso"
-
-        >
-
-
-
-    <RadioButton
-        android:id="@+id/radioMasculino"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Masculino"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textPeso" />
-
-    <RadioButton
-        android:id="@+id/radioFemenino"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Femenino"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/radioMasculino" />
+        app:layout_constraintTop_toBottomOf="@+id/textPeso">
+
+
+        <RadioButton
+            android:id="@+id/radioMasculino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Masculino" />
+
+
+        <RadioButton
+            android:id="@+id/radioFemenino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Femenino" />
 
     </RadioGroup>
 
