@@ -55,8 +55,6 @@ public class UsuarioDAOImp implements UsuarioDAO {
         try {
             preparedStatement = connection.prepareStatement("SELECT * FROM "+SchemeDB.TAB_NAME);
             ResultSet resultSet = preparedStatement.executeQuery();
-            //[                            x]
-            //  [r,r,r,r,r,r,r,r,r,r,r,r,r,r]
             while (resultSet.next()){
                 // añadir los usuarios a la lista
                 String nombre = resultSet.getString(SchemeDB.COL_NAME);
