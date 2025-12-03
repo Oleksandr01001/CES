@@ -16,17 +16,44 @@
     ></script>
     <title>Document</title>
   </head>
-  <body style="background-color: yellow">
-    <h1>Primer proyecto JS</h1>
-    <p>Esta pagina es para poder comentar la funcionalidad de js</p>
+  <body>
+    <main class="container">
+      <h1 style="text-align: center" class="mt-4">Listin telefonico</h1>
 
-    <!--     <script>
-      codigo js donde puedo manipular el DOM
-      console.log("Ejecutado JS desde HTML");
+      <div class="mt-4">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Introduce tu nombre"
+          id="inputNombre"
+        />
+        <input
+          type="text"
+          class="form-control mt-2"
+          placeholder="Introduce tu apellido"
+          id="inputApellido"
+        />
+        <input
+          type="date"
+          class="form-control mt-2"
+          placeholder="Introduce tu fecha nacimiento"
+          id="inputFecha"
+        />
+        <select class="form-select mt-2" id="selectEdad"></select>
+      </div>
+      <div class="row mt-4" id="botones1">
+        <button class="btn btn-primary col" id="btnAgregar">Agregar</button>
+        <button class="btn btn-warning col" id="btnLimpiar">Limpar</button>
+      </div>
+    </main>
+
+    <script type="text/javascript">
+      // codigo js deonde puedo manipular el DOM
+      console.log("Ejecutado JS desde el HTML");
     </script>
-   
-    -->
-    <script src="./utlits/js/index.js"></script>
-    <script src="./utlits/js/funciones.js"></script>
+    <!-- <script src="./utils/js/index.js"></script> -->
+    <!-- <script src="./utils/js/funciones.js"></script> -->
+    <!-- <script src="./utils/js/listas.js"></script> -->
+    <script src="./utils/js/modificaciones.js"></script>
   </body>
 </html>
