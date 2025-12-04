@@ -10,6 +10,8 @@ print(matriz[1][2]) # 6
 
 
 with open("ficheroPrueba.txt","a") as f:
-    contenido = f.read()
+    try:
+        contenido = f.read()
+        except Error
     o1 = "Hola"
     f.write(o1)
