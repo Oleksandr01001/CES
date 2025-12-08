@@ -1,9 +1,10 @@
-package com.example.tienda.adaptador
+package com.example.tienda.adapter
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.tienda.R
@@ -17,6 +18,14 @@ class AdapterProducto(
     var lista: ArrayList<Producto>,
     private val contexto: Context
 ) : RecyclerView.Adapter<AdapterProducto.MyHolder>() {
+
+    private var listener: OnProductoCarritoListener? = null
+
+    init {
+        if (contexto is OnProductoCarritoListener) {
+            listener = contexto
+        }
+    }
 
     inner class MyHolder(val binding: ItemProductoBinding) :
         RecyclerView.ViewHolder(binding.root)
@@ -44,13 +53,30 @@ class AdapterProducto(
                 .into(imagenFila)
 
             btnCompra.setOnClickListener { v ->
-                DataSet.listaCarrito.add(producto)
+                // Diálogo de confirmación
+                val builder = AlertDialog.Builder(contexto)
+                builder.setTitle("Añadir al carrito")
+                builder.setMessage("¿Seguro que quieres añadir \"${producto.nombre}\" al carrito?")
 
-                if (contexto is OnProductoCarritoListener) {
-                    contexto.actualizarContadorCarrito()
+                builder.setPositiveButton("Sí") { _, _ ->
+                    // Añadir producto al carrito
+                    DataSet.addProducto(producto)
+
+                    // Actualizar contador si hay listener
+                    listener?.actualizarContadorCarrito()
+
+                    Snackbar.make(
+                        v,
+                        "Producto añadido al carrito",
+                        Snackbar.LENGTH_SHORT
+                    ).show()
                 }
 
-                Snackbar.make(v, "Producto añadido al carrito", Snackbar.LENGTH_SHORT).show()
+                builder.setNegativeButton("No") { dialog, _ ->
+                    dialog.dismiss()
+                }
+
+                builder.show()
             }
 
             btnDetalle.setOnClickListener {

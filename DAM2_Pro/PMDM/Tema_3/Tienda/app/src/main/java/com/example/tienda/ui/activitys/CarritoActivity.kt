@@ -3,7 +3,7 @@ package com.example.tienda.ui.activitys
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tienda.adaptador.AdapterProducto
+import com.example.tienda.adapter.AdapterProducto
 import com.example.tienda.databinding.ActivityCarritoBinding
 import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
