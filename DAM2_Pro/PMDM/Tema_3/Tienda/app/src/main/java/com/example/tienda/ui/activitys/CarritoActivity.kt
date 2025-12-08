@@ -1,4 +1,4 @@
-package com.example.tienda.ui
+package com.example.tienda.ui.activitys
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +21,7 @@ class CarritoActivity : AppCompatActivity() {
 
         title = "Carrito"
 
-        adapterCarrito = AdapterProducto(DataSet.listaCarrito, this)
+        adapterCarrito = AdapterProducto(DataSet.Companion.listaCarrito, this)
 
         binding.recyclerCarrito.layoutManager = LinearLayoutManager(this)
         binding.recyclerCarrito.adapter = adapterCarrito
@@ -29,7 +29,7 @@ class CarritoActivity : AppCompatActivity() {
         actualizarTotal()
 
         binding.btnVaciarCarrito.setOnClickListener {
-            DataSet.listaCarrito.clear()
+            DataSet.Companion.listaCarrito.clear()
             adapterCarrito.chageList(ArrayList<Producto>())
             actualizarTotal()
         }
@@ -37,7 +37,7 @@ class CarritoActivity : AppCompatActivity() {
 
     private fun actualizarTotal() {
         var total = 0.0
-        for (p in DataSet.listaCarrito) {
+        for (p in DataSet.Companion.listaCarrito) {
             total += p.precio
         }
         binding.textoTotalCarrito.text = "Total: %.2f €".format(total)

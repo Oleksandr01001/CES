@@ -14,10 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tienda">
         <activity
-            android:name=".ui.CarritoActivity"
+            android:name=".ui.activitys.CarritoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.DetalleActivity"
+            android:name=".ui.activitys.DetalleActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

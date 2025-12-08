@@ -16,7 +16,7 @@ import com.example.tienda.adaptador.AdapterProducto
 import com.example.tienda.databinding.ActivityMainBinding
 import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
-import com.example.tienda.ui.CarritoActivity
+import com.example.tienda.ui.activitys.CarritoActivity
 import kotlin.jvm.java
 
 class MainActivity : AppCompatActivity(),
