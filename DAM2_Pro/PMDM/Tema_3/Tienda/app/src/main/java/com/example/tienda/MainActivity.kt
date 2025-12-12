@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity(),
 
         adapterProducto = AdapterProducto(lista, this)
 
-        // LayoutManager según orientación (lista o grid)
         if (resources.configuration.orientation == 1) {
             binding.recyclerProductos.layoutManager =
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)

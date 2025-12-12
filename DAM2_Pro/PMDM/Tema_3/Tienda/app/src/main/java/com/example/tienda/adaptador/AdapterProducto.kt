@@ -53,16 +53,13 @@ class AdapterProducto(
                 .into(imagenFila)
 
             btnCompra.setOnClickListener { v ->
-                // Diálogo de confirmación
                 val builder = AlertDialog.Builder(contexto)
                 builder.setTitle("Añadir al carrito")
                 builder.setMessage("¿Seguro que quieres añadir \"${producto.nombre}\" al carrito?")
 
                 builder.setPositiveButton("Sí") { _, _ ->
-                    // Añadir producto al carrito
                     DataSet.addProducto(producto)
 
-                    // Actualizar contador si hay listener
                     listener?.actualizarContadorCarrito()
 
                     Snackbar.make(
