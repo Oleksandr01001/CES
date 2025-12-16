@@ -2,51 +2,67 @@ package com.example.tienda
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+
 import android.view.View
 import android.widget.AdapterView
+
 import androidx.appcompat.app.AppCompatActivity
+
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tienda.adapter.AdapterProducto
+import com.example.tienda.databinding.ActivityCarritoBinding
 import com.example.tienda.databinding.ActivityMainBinding
 import com.example.tienda.dataset.DataSet
 import com.example.tienda.model.Producto
-import com.example.tienda.ui.activitys.CarritoActivity
+import com.example.tienda.ui.activities.CarritoActivity
+import com.example.tienda.ui.dialogs.DIalogoComparar
 import com.example.tienda.ui.dialogs.DialogoInformacion
+import com.google.android.material.snackbar.Snackbar
+import java.util.Locale
 
 class MainActivity : AppCompatActivity(),
-    AdapterProducto.OnProductoCarritoListener {
+    AdapterProducto.OnProductoCarritoListener,
+    DIalogoComparar.OnCompararListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapterProducto: AdapterProducto
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbar)
-
         val lista: ArrayList<Producto> = DataSet.lista
+        // quiero obtener la lista de productos de una categoria determinada
+        // categoria
 
         adapterProducto = AdapterProducto(lista, this)
 
         if (resources.configuration.orientation == 1) {
             binding.recyclerProductos.layoutManager =
-                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager(
+                    this,
+                    LinearLayoutManager.VERTICAL, false
+                )
         } else {
+
             binding.recyclerProductos.layoutManager =
-                GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
+                GridLayoutManager(
+                    this, 2,
+                    GridLayoutManager.VERTICAL, false
+                )
         }
+        binding.recyclerProductos.adapter = adapterProducto;
 
-        binding.recyclerProductos.adapter = adapterProducto
+        // acciones()
 
-        acciones()
+
     }
 
-    private fun acciones() {
+    fun acciones() {
         binding.spinnerCategorias.onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
@@ -55,19 +71,21 @@ class MainActivity : AppCompatActivity(),
                     position: Int,
                     id: Long
                 ) {
-                    val categoriaSeleccionada = parent!!.adapter.getItem(position).toString()
-                    val listaFiltrada = DataSet.getListaFiltrada(categoriaSeleccionada)
+                    var categoriaSeleccionada = parent!!.adapter.getItem(position)
+                    var listaFiltrada = DataSet.getListaFiltrada(
+                        categoriaSeleccionada.toString().lowercase(
+                            Locale.ROOT
+                        )
+                    )
                     adapterProducto.chageList(listaFiltrada)
+                    // adapterProducto = AdapterProducto(listaFiltrada, this@MainActivity)
+                    // binding.recyclerProductos.adapter = adapterProducto;
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+
                 }
             }
-
-        binding.imagenCarrito.setOnClickListener {
-            val intent = Intent(this, CarritoActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -77,42 +95,47 @@ class MainActivity : AppCompatActivity(),
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-
+            // ver la activity del carrito
             R.id.menu_carrio -> {
                 val intent = Intent(this, CarritoActivity::class.java)
                 startActivity(intent)
-                return true
             }
-
+            // fitrar la lista (no se filtra por el cambio)
             R.id.menu_filtrar -> {
-                val categoriaSeleccionada = binding.spinnerCategorias.selectedItem.toString()
-                val listaFiltrada = DataSet.getListaFiltrada(categoriaSeleccionada)
-                adapterProducto.chageList(listaFiltrada)
-                return true
+                val seleccionSpinner = binding.spinnerCategorias.selectedItem.toString()
+                val lista = DataSet.getListaFiltrada(seleccionSpinner)
+                adapterProducto.chageList(lista)
             }
-
+            // quito el filtro de la lista, y pongo todos los elementos
             R.id.menu_limpiar -> {
-                adapterProducto.chageList(DataSet.lista)
-                binding.spinnerCategorias.setSelection(0)
-                return true
+                val lista = DataSet.getListaFiltrada("todas")
+                adapterProducto.chageList(lista)
             }
 
-            R.id.menu_info-> {
-                val dialogoInformacion = DialogoInformacion()
+            R.id.menu_info -> {
+                val dialogoInformacion: DialogoInformacion = DialogoInformacion()
                 dialogoInformacion.show(supportFragmentManager, null)
-                return true
+            }
+
+            R.id.menu_comparar -> {
+                val dialogoComparar = DIalogoComparar()
+                dialogoComparar.show(supportFragmentManager, null)
             }
         }
+        return true;
+    }
 
-        return super.onOptionsItemSelected(item)
+    override fun onRestart() {
+        super.onRestart()
+        actualizarContadorCarrito()
     }
 
     override fun actualizarContadorCarrito() {
         binding.textoContador.text = DataSet.listaCarrito.size.toString()
     }
 
-    override fun onResume() {
-        super.onResume()
-        actualizarContadorCarrito()
+    override fun onCompararSelected(opcion: String) {
+        Snackbar.make(binding.root, "La opcion seleccionada es ${opcion}", Snackbar.LENGTH_SHORT)
+            .show()
     }
 }

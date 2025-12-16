@@ -71,17 +71,13 @@ class DataSet {
         }
 
         fun getListaFiltrada(categoria: String): ArrayList<Producto> {
-            if (categoria.equals("Todas", ignoreCase = true)) {
-                return ArrayList(lista)
+            if (categoria == "todas") {
+                return lista
+            } else {
+                return lista.filter { it.categoria.equals(categoria, true) }
+                        as ArrayList<Producto>
             }
 
-            val listaFiltrada = ArrayList<Producto>()
-            for (p in lista) {
-                if (p.categoria.equals(categoria, ignoreCase = true)) {
-                    listaFiltrada.add(p)
-                }
-            }
-            return listaFiltrada
         }
 
 
