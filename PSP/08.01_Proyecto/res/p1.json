@@ -1,0 +1,24 @@
+import org.apache.commons.net.ftp.FTP
+import org.apache.commons.net.ftp.FTPClient
+import java.io.FileInputStream
+
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+fun main() {
+    val ftp = FTPClient()
+    try {
+        ftp.connect("192.168.2.173",21)
+        ftp.login("dam2","dam2")
+        ftp.enterLocalPassiveMode()
+        ftp.setFileType(FTP.BINARY_FILE_TYPE)
+
+        val input = FileInputStream("C:\\Users\\admin\\IdeaProjects\\untitled2\\src\\Main.kt")
+        ftp.storeFile("/carpeta/jesus2.json",input)
+        input.close()
+    }catch (e: Exception){
+        e.printStackTrace()
+    }finally{
+        ftp.logout()
+        ftp.disconnect()
+    }
+}
