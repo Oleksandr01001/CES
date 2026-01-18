@@ -1,35 +1,56 @@
 package com.example.agendajson.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.agendajson.R
+import com.bumptech.glide.Glide
+import com.example.agendajson.databinding.ActivityMainBinding
+import com.example.agendajson.databinding.ItemUserCardBinding
 import com.example.agendajson.model.User
 
-class UserAdapter(
-    private val lista: List<User>,
-    private val onClick: (User) -> Unit
-) : RecyclerView.Adapter<UserAdapter.VH>() {
+class UserAdapter(var context: Context) : RecyclerView.Adapter<UserAdapter.MyHolder>() {
 
-    class VH(v: View) : RecyclerView.ViewHolder(v) {
-        val tvNombre: TextView = v.findViewById(R.id.tvNombre)
-        val tvEmail: TextView = v.findViewById(R.id.tvEmail)
+    private var lista: ArrayList<User>
+
+    inner class MyHolder(var binding: ItemUserCardBinding) : RecyclerView.ViewHolder(binding.root)
+
+    init {
+        lista = ArrayList()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
-        return VH(v)
+
+    fun addUSer(user: User): Unit {
+        this.lista.add(user)
+        notifyItemInserted(lista.size-1)
     }
 
-    override fun onBindViewHolder(holder: VH, position: Int) {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): MyHolder {
+        val binding = ItemUserCardBinding.inflate(
+            LayoutInflater.from(context),
+            parent,
+            false
+        )
+        return MyHolder(binding)
+    }
+
+    override fun onBindViewHolder(
+        holder: MyHolder,
+        position: Int
+    ) {
+
         val user = lista[position]
-        holder.tvNombre.text = "${user.firstName.orEmpty()} ${user.lastName.orEmpty()}"
-        holder.tvEmail.text = user.email.orEmpty()
-
-        holder.itemView.setOnClickListener { onClick(user) }
+        holder.binding.textoCard.text = user.email
+        holder.binding.toolbarCard.title = user.firstName
+        Glide.with(context).load(user.image).into(holder.binding.imagenCard)
     }
 
-    override fun getItemCount(): Int = lista.size
+    override fun getItemCount(): Int {
+        return lista.size
+    }
+
+
 }
