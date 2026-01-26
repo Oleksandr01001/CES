@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:title="Ver detalles"
         android:id="@+id/menu_user_detalle"
         />
+
     <item
         android:title="Agregar favorito"
         android:id="@+id/menu_user_fav"
         />
+    <item
+        android:title="Eliminar favorito"
+        android:id="@+id/menu_user_e_fav"
+        />
+
+
 </menu>

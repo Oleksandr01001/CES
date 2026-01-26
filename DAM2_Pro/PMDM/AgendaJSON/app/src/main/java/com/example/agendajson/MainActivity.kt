@@ -1,22 +1,34 @@
 package com.example.agendajson
+
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.agendajson.adapter.UserAdapter
 import com.example.agendajson.databinding.ActivityMainBinding
+import com.example.agendajson.dataset.FavData
 import com.example.agendajson.model.User
+import com.example.agendajson.ui.dialog.DialogFilter
+import com.example.agendajson.ui.dialog.DialogUser
+import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import org.json.JSONArray
+import org.json.JSONObject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),
+    DialogFilter.OnDialogoFiltrarListener, UserAdapter.OnItemUserListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var adapter: UserAdapter
+    private val urlBase = "https://dummyjson.com/users"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         instancias()
         initGUI()
-        realizarPeticionJSON()
+        realizarPeticionJSON(urlBase)
     }
 
     private fun instancias() {
@@ -33,14 +45,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initGUI() {
 
+
         setSupportActionBar(binding.toolbar)
         binding.recyclerUsers.adapter = adapter;
         binding.recyclerUsers.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
     }
 
-    private fun realizarPeticionJSON() {
-        val url = "https://dummyjson.com/users"
+    private fun realizarPeticionJSON(url: String) {
+
         // 1. Realizar la peticion de forma correcta
         val peticionJSON: JsonObjectRequest = JsonObjectRequest(
             url,
@@ -73,12 +86,54 @@ class MainActivity : AppCompatActivity() {
 
         when (item.itemId) {
             R.id.menu_filtrar -> {
-
+                val dialogFilter: DialogFilter = DialogFilter()
+                dialogFilter.show(supportFragmentManager, null)
+            }
+            R.id.menu_ver_favs -> {
+                startActivity(Intent(this, FavoritesActivity::class.java))
+                return true
             }
         }
 
+
         return super.onOptionsItemSelected(item)
     }
+
+    override fun onGeneroSelected(genero: String) {
+        // Snackbar.make(binding.root, "El genero seleccionado es $genero", Snackbar.LENGTH_SHORT).show()
+        // PETICION JSON CON UNA URL ALGO DIFERENTE
+        adapter.clearUsers()
+        if (genero == "all")
+            realizarPeticionJSON(urlBase)
+        else {
+            val urlGender = "$urlBase/filter?key=gender&value=$genero"
+            realizarPeticionJSON(urlGender)
+        }
+    }
+
+    override fun onUserDetailSelected(user: User) {
+        val dialogo: DialogUser = DialogUser.newInstance(user)
+        dialogo.show(supportFragmentManager, null)
+    }
+
+    override fun onUserAddFavSelected(user: User) {
+        val added = FavData.add(user)
+        if (added) {
+            Snackbar.make(binding.root, "Añadido a favoritos", Snackbar.LENGTH_SHORT).show()
+        } else {
+            Snackbar.make(binding.root, "Ya está en favoritos", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onUserRemoveFavSelected(user: User) {
+        val removed = FavData.remove(user)
+        if (removed) {
+            Snackbar.make(binding.root, "Eliminado de favoritos", Snackbar.LENGTH_SHORT).show()
+        } else {
+            Snackbar.make(binding.root, "No estaba en favoritos", Snackbar.LENGTH_SHORT).show()
+        }
+    }
+
 
 
 }
