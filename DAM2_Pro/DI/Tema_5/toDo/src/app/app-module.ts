@@ -6,6 +6,7 @@ import { App } from './app';
 import { Agregar } from './components/agregar/agregar';
 import { Mostrar } from './components/mostrar/mostrar';
 import { Buscar } from './components/buscar/buscar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { Buscar } from './components/buscar/buscar';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
