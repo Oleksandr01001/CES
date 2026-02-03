@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './buscar.css',
 })
 export class Buscar {
-
+  prioridad: any;
 }

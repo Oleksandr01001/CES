@@ -1,15 +1,8 @@
-export class tarea{
-    items: object[];
-
-    constructor(
-        private nombre: string,
-        private fecha: string,
-        private responsable: string,
-        private completada: boolean,
-        private tipo: string,
-    ) {
-        this.items = [];
-    }
-
-    
+export interface tarea {
+  nombre: string | undefined;
+  responsable: string | undefined;
+  items: string[];
+  fecha: string | undefined;
+  prioridad: number;
+  descipcion: string | undefined;
 }

@@ -1,4 +1,4 @@
-package com.example.tienda.ui.dialog
+package com.example.tienda1.ui.dialog
 
 import android.app.Dialog
 import android.os.Bundle

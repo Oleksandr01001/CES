@@ -4,16 +4,16 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { Agregar } from './components/agregar/agregar';
-import { Mostrar } from './components/mostrar/mostrar';
 import { Buscar } from './components/buscar/buscar';
 import { FormsModule } from '@angular/forms';
+import { Listar } from './components/listar/listar';
 
 @NgModule({
   declarations: [
     App,
     Agregar,
-    Mostrar,
-    Buscar
+    Buscar,
+    Listar
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { tarea } from '../../model/tarea';
+import { Tareas } from '../../services/tareas';
 
 @Component({
   selector: 'app-agregar',
@@ -7,5 +9,43 @@ import { Component } from '@angular/core';
   styleUrl: './agregar.css',
 })
 export class Agregar {
+  items: string[] = [];
+  nombre?: string;
+  fecha?: string;
+  responsable?: string;
+  prioridad?: string;
+  descripcion?: string;
+  item?: string;
+  tareas: tarea[] = [];
 
+  constructor(private tareasServicio: Tareas) {
+    // logica
+  }
+
+  agregarItem() {
+    if (this.item != undefined) {
+      this.items.push(this.item);
+    } else {
+      // saltar un aviso
+    }
+  }
+
+  agregarTarea() {
+    /* if(){
+
+    } else {
+
+    } */
+    let tarea: tarea = {
+      nombre: this.nombre,
+      responsable: this.responsable,
+      items: this.items,
+      fecha: this.fecha,
+      prioridad: Number(this.prioridad),
+      descipcion: this.descripcion,
+    };
+
+    // llamar al metodo agregarTarea del servicio
+    this.tareasServicio.agregarTarea(tarea);
+  }
 }

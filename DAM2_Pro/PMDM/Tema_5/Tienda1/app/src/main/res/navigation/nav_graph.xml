@@ -26,10 +26,20 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="correo"
+            app:argType="string" />
+        <argument
+            android:name="pass"
+            app:argType="string" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_main"
         android:id="@+id/mainFragment"
         android:name="com.example.tienda.ui.fragment.MainFragment"
         android:label="MainFragment" />
+    <dialog
+        android:id="@+id/dialogoRegistroOK"
+        android:name="com.example.tienda.ui.dialog.DialogoRegistroOK"
+        android:label="DialogoRegistroOK" />
 </navigation>

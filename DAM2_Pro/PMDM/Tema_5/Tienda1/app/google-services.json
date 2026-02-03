@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1019457880197",
+    "project_id": "ohces2526",
+    "storage_bucket": "ohces2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019457880197:android:3df443dc67bb4ee07e69ec",
+        "android_client_info": {
+          "package_name": "com.example.tienda1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQRZzRPkEq0KpMgGIN1yeEI7ugjKhc7NM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
