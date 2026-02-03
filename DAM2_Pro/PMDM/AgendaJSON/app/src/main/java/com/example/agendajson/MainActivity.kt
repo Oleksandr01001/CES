@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
@@ -21,7 +18,6 @@ import com.example.agendajson.ui.dialog.DialogUser
 import com.google.android.material.snackbar.Snackbar
 import com.google.gson.Gson
 import org.json.JSONArray
-import org.json.JSONObject
 
 class MainActivity : AppCompatActivity(),
     DialogFilter.OnDialogoFiltrarListener, UserAdapter.OnItemUserListener {
