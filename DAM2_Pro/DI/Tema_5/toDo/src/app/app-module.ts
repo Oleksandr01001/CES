@@ -8,6 +8,7 @@ import { Buscar } from './components/buscar/buscar';
 import { FormsModule } from '@angular/forms';
 import { Listar } from './components/listar/listar';
 import { ImagenesPipe } from './pipes/imagenes-pipe';
+import { Carta } from './components/carta/carta';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ImagenesPipe } from './pipes/imagenes-pipe';
     Agregar,
     Buscar,
     Listar,
-    ImagenesPipe
+    ImagenesPipe,
+    Carta
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "745879529256",
+    "firebase_url": "https://eoh-2526-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "eoh-2526",
+    "storage_bucket": "eoh-2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745879529256:android:a60d8830703f71afaf521d",
+        "android_client_info": {
+          "package_name": "com.example.gestorexamenes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSftp7D4YhWJTeGBIHhEV_F3N2JD0ZujM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

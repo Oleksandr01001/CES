@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "100760681453",
+    "firebase_url": "https://examoh-2526-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "examoh-2526",
+    "storage_bucket": "examoh-2526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100760681453:android:386a25cc46ea5ee66085e4",
+        "android_client_info": {
+          "package_name": "com.example.examenfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6NRyM0HBZtqRpD7ROjoMHmHIabQsHgX8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
